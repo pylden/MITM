@@ -12,4 +12,3 @@ class ProtocolProcessor:
         """Action when server send data"""
         pass
 
-    assign_view = staticmethod

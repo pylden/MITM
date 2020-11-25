@@ -1,8 +1,8 @@
 from module.protocol.network.message import Message
 
 
-class AllianceModificationEmblemVal2632(Message):
-    def __init__(self, buffer_reader):
-        Message.__init__(buffer_reader)
+class AllianceModificationEmblemValidMessage(Message):
+    def __init__(self, buffer_reader, len_type, length):
+        Message.__init__(self, buffer_reader, len_type, length)
         self.id = 2632
         self.Alliancemblem = {"type": "GuildEmblem", "value": ""}

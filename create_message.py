@@ -22,13 +22,17 @@ for name in filelist:
             classname = re.findall(r"public class (\S+)", read)[0]
             listt.append(classname)
             dicto[int(id)] = classname
-            vars = re.findall(r"public var (\S+):(\S+)[ |;]", read)
-            write_class = file_example.replace("classname", classname).replace("idMessage", id)
-            for var in vars:
-                write_class += "        self.%s = {\"type\": \"%s\", \"value\": \"\"}\n" % (var[0], var[1])
-                datatypes[var[1]] = ""
-            wc = open("./module/protocol/network/messages/%s.py" % classname, 'w')
-            wc.write(write_class)
-            wc.close
-print(dict(OrderedDict(sorted(dicto.items(), key=lambda t: t[0]))))
-print(sorted(listt))
+            # vars = re.findall(r"public var (\S+):(\S+)[ |;]", read)
+            # write_class = file_example.replace("classname", classname).replace("idMessage", id)
+            # for var in vars:
+            #     write_class += "        self.%s = {\"type\": \"%s\", \"value\": \"\"}\n" % (var[0], var[1])
+            #     datatypes[var[1]] = ""
+            # wc = open("./module/protocol/network/messages/%s.py" % classname, 'w')
+            # wc.write(write_class)
+            # wc.close
+dicto = dict(OrderedDict(sorted(dicto.items(), key=lambda t: t[0])))
+# print(dicto)
+for key, val in enumerate(dicto.items()):
+    print("%d: %s.%s, " % (val[0], val[1], val[1]))
+
+#print(str(sorted(listt))[1:-1])

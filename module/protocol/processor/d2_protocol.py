@@ -6,7 +6,7 @@ class D2Protocol(ProtocolProcessor):
     def __init__(self, client):
         ProtocolProcessor.__init__(self, client)
 
-    def get_messages(buffer, data):
+    def get_messages(self, buffer, data):
         buffer += data
         messages = list()
         while message := MessageFactory.message(buffer):
@@ -31,4 +31,3 @@ class D2Protocol(ProtocolProcessor):
     def send_server(self, message):
         self._client.write(message)
 
-    get_message = staticmethod(get_messages)

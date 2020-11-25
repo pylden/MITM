@@ -1,8 +1,8 @@
 from module.protocol.network.message import Message
 
 
-class GuildModificationNameVal942(Message):
-    def __init__(self, buffer_reader):
-        Message.__init__(buffer_reader)
+class GuildModificationNameValidMessage(Message):
+    def __init__(self, buffer_reader, len_type, length):
+        Message.__init__(self, buffer_reader, len_type, length)
         self.id = 942
         self.guildName = {"type": "String", "value": ""}
