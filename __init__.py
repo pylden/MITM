@@ -6,6 +6,7 @@ from module.ui.app import App
 import queue
 import os
 import re
+from module.protocol.network.messages.AdminCommandMessage import AdminCommandMessage
 
 EXE_PATH = "C:/Users/Pierre/AppData/Local/Ankama/zaap/dofus/Dofus.exe"
 EXE_NAME = "Dofus.exe"
@@ -44,3 +45,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    msg = AdminCommandMessage("Buffer")
+    print(msg.__dict__)

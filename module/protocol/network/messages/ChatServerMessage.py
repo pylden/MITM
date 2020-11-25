@@ -2,7 +2,8 @@ from module.protocol.network.message import Message
 
 
 class ChatServerMessage(Message):
-    def __init__(self):
+    def __init__(self, buffer_reader):
+        Message.__init__(buffer_reader)
         self.id = 5722
         self.senderName = {"type": "String", "value": ""}
         self.prefix = {"type": "String", "value": ""}
