@@ -5,3 +5,6 @@ class TeleportBuddiesRequestedMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 9376
+        self.dungeonId = {"type": "uint", "value": ""}
+        self.inviterId = {"type": "Number", "value": ""}
+        self.invalidBuddiesIds = {"type": "Vector.<Number>", "value": ""}

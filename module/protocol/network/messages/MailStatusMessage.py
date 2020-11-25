@@ -5,3 +5,5 @@ class MailStatusMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 3369
+        self.unread = {"type": "uint", "value": ""}
+        self.total = {"type": "uint", "value": ""}

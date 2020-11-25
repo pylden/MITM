@@ -6,4 +6,6 @@ class ExchangeMountSterilizeFromPaddockMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 7328
         self.name = {"type": "String", "value": ""}
+        self.worldX = {"type": "int", "value": ""}
+        self.worldY = {"type": "int", "value": ""}
         self.sterilizator = {"type": "String", "value": ""}

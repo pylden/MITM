@@ -5,3 +5,4 @@ class ExchangeStartOkNpcTradeMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 6982
+        self.npcId = {"type": "Number", "value": ""}

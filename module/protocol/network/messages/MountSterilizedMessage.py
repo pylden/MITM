@@ -5,3 +5,4 @@ class MountSterilizedMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 4700
+        self.mountId = {"type": "int", "value": ""}

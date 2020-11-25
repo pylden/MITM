@@ -5,3 +5,5 @@ class GameActionFightStealKamaMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 7772
+        self.targetId = {"type": "Number", "value": ""}
+        self.amount = {"type": "Number", "value": ""}

@@ -5,3 +5,4 @@ class BreachExitResponseMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 624
+        self.exited = {"type": "Boolean", "value": ""}

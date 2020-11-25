@@ -5,3 +5,4 @@ class HouseToSellListRequestMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 259
+        self.pageIndex = {"type": "uint", "value": ""}

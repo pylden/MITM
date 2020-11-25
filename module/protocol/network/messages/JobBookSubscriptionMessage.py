@@ -5,3 +5,4 @@ class JobBookSubscriptionMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 9091
+        self.subscriptions = {"type": "Vector.<JobBookSubscription>", "value": ""}

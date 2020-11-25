@@ -5,3 +5,4 @@ class JobExperienceMultiUpdateMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 3242
+        self.experiencesUpdate = {"type": "Vector.<JobExperience>", "value": ""}

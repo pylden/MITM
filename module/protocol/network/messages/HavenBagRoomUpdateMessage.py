@@ -5,3 +5,5 @@ class HavenBagRoomUpdateMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 4575
+        self.action = {"type": "uint", "value": ""}
+        self.roomsPreview = {"type": "Vector.<HavenBagRoomPreviewInformation>", "value": ""}

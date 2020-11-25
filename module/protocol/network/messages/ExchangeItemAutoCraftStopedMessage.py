@@ -5,3 +5,4 @@ class ExchangeItemAutoCraftStopedMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 2052
+        self.reason = {"type": "int", "value": ""}

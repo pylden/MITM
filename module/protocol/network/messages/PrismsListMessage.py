@@ -5,3 +5,4 @@ class PrismsListMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 3577
+        self.prisms = {"type": "Vector.<PrismSubareaEmptyInfo>", "value": ""}

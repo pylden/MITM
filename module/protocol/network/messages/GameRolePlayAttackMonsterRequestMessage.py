@@ -5,3 +5,4 @@ class GameRolePlayAttackMonsterRequestMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 3866
+        self.monsterGroupId = {"type": "Number", "value": ""}

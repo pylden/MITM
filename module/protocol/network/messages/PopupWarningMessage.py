@@ -5,5 +5,6 @@ class PopupWarningMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 6411
+        self.lockDuration = {"type": "uint", "value": ""}
         self.author = {"type": "String", "value": ""}
         self.content = {"type": "String", "value": ""}

@@ -5,3 +5,4 @@ class GameFightRefreshFighterMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 4468
+        self.informations = {"type": "GameContextActorInformations", "value": ""}

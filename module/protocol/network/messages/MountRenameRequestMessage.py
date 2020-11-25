@@ -6,3 +6,4 @@ class MountRenameRequestMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 9887
         self.name = {"type": "String", "value": ""}
+        self.mountId = {"type": "int", "value": ""}

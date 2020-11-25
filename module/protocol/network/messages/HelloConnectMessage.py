@@ -6,3 +6,4 @@ class HelloConnectMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 2607
         self.salt = {"type": "String", "value": ""}
+        self.key = {"type": "Vector.<int>", "value": ""}

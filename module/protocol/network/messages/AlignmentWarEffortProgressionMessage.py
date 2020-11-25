@@ -5,3 +5,4 @@ class AlignmentWarEffortProgressionMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 5772
+        self.effortProgressions = {"type": "Vector.<AlignmentWarEffortInformation>", "value": ""}

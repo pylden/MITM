@@ -6,3 +6,4 @@ class IconNamedPresetSaveRequestMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 9336
         self.name = {"type": "String", "value": ""}
+        self.type = {"type": "uint", "value": ""}

@@ -5,3 +5,4 @@ class GuildLevelUpMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 2785
+        self.newLevel = {"type": "uint", "value": ""}

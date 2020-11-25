@@ -6,3 +6,4 @@ class CharacterLevelUpInformationMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 1775
         self.name = {"type": "String", "value": ""}
+        self.id = {"type": "Number", "value": ""}

@@ -6,3 +6,4 @@ class IgnoredAddRequestMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 9784
         self.name = {"type": "String", "value": ""}
+        self.session = {"type": "Boolean", "value": ""}

@@ -5,3 +5,5 @@ class ForgettableSpellListUpdateMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 1059
+        self.action = {"type": "uint", "value": ""}
+        self.spells = {"type": "Vector.<ForgettableSpellItem>", "value": ""}

@@ -7,3 +7,4 @@ class AllianceModificationVal8871(Message):
         self.id = 8871
         self.allianceName = {"type": "String", "value": ""}
         self.allianceTag = {"type": "String", "value": ""}
+        self.Alliancemblem = {"type": "GuildEmblem", "value": ""}

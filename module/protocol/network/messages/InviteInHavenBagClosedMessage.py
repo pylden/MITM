@@ -5,3 +5,4 @@ class InviteInHavenBagClosedMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 3445
+        self.hostInformations = {"type": "CharacterMinimalInformations", "value": ""}

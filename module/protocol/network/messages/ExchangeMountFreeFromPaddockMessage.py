@@ -6,4 +6,6 @@ class ExchangeMountFreeFromPaddockMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 9283
         self.name = {"type": "String", "value": ""}
+        self.worldX = {"type": "int", "value": ""}
+        self.worldY = {"type": "int", "value": ""}
         self.liberator = {"type": "String", "value": ""}

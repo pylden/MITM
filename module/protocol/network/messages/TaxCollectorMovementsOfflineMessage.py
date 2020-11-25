@@ -5,3 +5,4 @@ class TaxCollectorMovementsOfflineMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 2499
+        self.movements = {"type": "Vector.<TaxCollectorMovement>", "value": ""}

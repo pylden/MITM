@@ -6,3 +6,4 @@ class AllianceBulletinSetRequestMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 8756
         self.content = {"type": "String", "value": ""}
+        self.notifyMembers = {"type": "Boolean", "value": ""}

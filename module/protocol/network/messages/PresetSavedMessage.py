@@ -5,3 +5,5 @@ class PresetSavedMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 4545
+        self.presetId = {"type": "int", "value": ""}
+        self.preset = {"type": "Preset", "value": ""}

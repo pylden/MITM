@@ -6,3 +6,4 @@ class GuildModificationVal2304(Message):
         Message.__init__(buffer_reader)
         self.id = 2304
         self.guildName = {"type": "String", "value": ""}
+        self.guildEmblem = {"type": "GuildEmblem", "value": ""}

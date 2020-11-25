@@ -6,3 +6,4 @@ class HaapiSessionMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 6833
         self.key = {"type": "String", "value": ""}
+        self.type = {"type": "uint", "value": ""}

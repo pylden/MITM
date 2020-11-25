@@ -6,3 +6,4 @@ class CheckFileRequestMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 4509
         self.filename = {"type": "String", "value": ""}
+        self.type = {"type": "uint", "value": ""}

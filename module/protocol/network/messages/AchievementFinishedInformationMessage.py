@@ -6,3 +6,4 @@ class AchievementFinishedInformationMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 7636
         self.name = {"type": "String", "value": ""}
+        self.playerId = {"type": "Number", "value": ""}

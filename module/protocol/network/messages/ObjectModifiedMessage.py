@@ -5,3 +5,4 @@ class ObjectModifiedMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 8399
+        self.object = {"type": "ObjectItem", "value": ""}

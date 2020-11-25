@@ -5,3 +5,5 @@ class ExchangeBidHouseBuyResultMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 3583
+        self.uid = {"type": "uint", "value": ""}
+        self.bought = {"type": "Boolean", "value": ""}

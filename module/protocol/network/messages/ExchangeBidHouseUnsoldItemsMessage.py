@@ -5,3 +5,4 @@ class ExchangeBidHouseUnsoldItemsMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 5367
+        self.items = {"type": "Vector.<ObjectItemGenericQuantity>", "value": ""}

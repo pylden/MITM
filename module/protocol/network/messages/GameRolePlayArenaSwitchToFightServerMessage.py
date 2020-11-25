@@ -6,3 +6,5 @@ class GameRolePlayArenaSwitchToFightServerMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 9880
         self.address = {"type": "String", "value": ""}
+        self.ports = {"type": "Vector.<uint>", "value": ""}
+        self.ticket = {"type": "Vector.<int>", "value": ""}

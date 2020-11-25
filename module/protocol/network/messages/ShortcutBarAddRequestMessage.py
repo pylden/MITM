@@ -5,3 +5,5 @@ class ShortcutBarAddRequestMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 2373
+        self.barType = {"type": "uint", "value": ""}
+        self.shortcut = {"type": "Shortcut", "value": ""}

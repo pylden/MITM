@@ -5,3 +5,4 @@ class ExchangeShopStockStartedMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 3010
+        self.objectsInfos = {"type": "Vector.<ObjectItemToSell>", "value": ""}

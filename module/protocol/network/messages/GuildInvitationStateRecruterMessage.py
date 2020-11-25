@@ -6,3 +6,4 @@ class GuildInvitationStateRecruterMessage(Message):
         Message.__init__(buffer_reader)
         self.id = 1230
         self.recrutedName = {"type": "String", "value": ""}
+        self.invitationState = {"type": "uint", "value": ""}

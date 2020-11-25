@@ -5,3 +5,5 @@ class ChallengeTargetUpdateMessage(Message):
     def __init__(self, buffer_reader):
         Message.__init__(buffer_reader)
         self.id = 3277
+        self.challengeId = {"type": "uint", "value": ""}
+        self.targetId = {"type": "Number", "value": ""}
