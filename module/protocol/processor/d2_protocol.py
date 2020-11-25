@@ -1,28 +1,34 @@
 from module.protocol.processor.protocol_processor import ProtocolProcessor
-from module.protocol.message.packet_factory import PacketFactory
+from module.protocol.network.message_factory import MessageFactory
 
 
 class D2Protocol(ProtocolProcessor):
-    def get_packets(buffer, data):
+    def __init__(self, client):
+        ProtocolProcessor.__init__(self, client)
+
+    def get_messages(buffer, data):
         buffer += data
-        packets = list()
-        while packet := PacketFactory.packet(buffer):
-            packets.append(packet)
-            buffer = buffer[packet.get_packet_size():]
-        return packets, buffer
+        messages = list()
+        while message := MessageFactory.message(buffer):
+            messages.append(message)
+            buffer = buffer[message.get_message_size():]
+        return messages, buffer
 
     def from_client(self, data):
-        packets, self._client_buffer = self.get_packets(self._client_buffer, data)
-        if len(packets):
+        messages, self._client_buffer = self.get_messages(self._client_buffer, data)
+        if len(messages):
             print("From client:")
-            for packet in packets:
-                print(packet)
+            for message in messages:
+                print(message)
 
     def from_server(self, data):
-        packets, self._server_buffer = self.get_packets(self._server_buffer, data)
-        if len(packets):
+        messages, self._server_buffer = self.get_messages(self._server_buffer, data)
+        if len(messages):
             print("From server:")
-            for packet in packets:
-                print(packet)
+            for message in messages:
+                print(message)
 
-    get_packets = staticmethod(get_packets)
+    def send_server(self, message):
+        self._client.write(message)
+
+    get_message = staticmethod(get_messages)

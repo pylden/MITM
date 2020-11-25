@@ -3,6 +3,8 @@ import asyncio
 
 
 class Server(asyncio.Protocol):  # MITM Server
+    clients = []
+
     def __init__(self, protocol_processor_class, client_server_ip, client_server_port):
         asyncio.Protocol.__init__(self)
         self._client = None
@@ -14,7 +16,9 @@ class Server(asyncio.Protocol):  # MITM Server
         self.transport = transport
         self.peername = transport.get_extra_info("peername")
         self._client = Client(self, self._protocol_processor_class)
+        self.__class__.clients.append({'id': None, 'instance': self._client})
 
+        print(len(Server.clients))
         loop = asyncio.get_event_loop()
         client = loop.create_connection(lambda: self._client, self._client_server_ip, self._client_server_port)
         print("Server connection_made: {}".format(self.peername))
@@ -26,4 +30,3 @@ class Server(asyncio.Protocol):  # MITM Server
     def connection_lost(self, exc):
         print("Connection lost")
         self._client.transport.close()
-
