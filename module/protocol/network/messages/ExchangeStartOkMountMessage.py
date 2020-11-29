@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeStartOkMountWithOutPaddockMessage import ExchangeStartOkMountWithOutPaddockMessage
 
 
-class ExchangeStartOkMountMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeStartOkMountMessage(ExchangeStartOkMountWithOutPaddockMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeStartOkMountWithOutPaddockMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1272
-        self.paddockedMountsDescription = {"type": "Vector.<MountClientData>", "value": ""}
+        self.vars.append({"name": "paddockedMountsDescription", "type": "Vector.<MountClientData>", "value": ""})

@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class IgnoredDeleteResultMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class IgnoredDeleteResultMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5614
-        self.success = {"type": "Boolean", "value": ""}
-        self.name = {"type": "String", "value": ""}
-        self.session = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "success", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "name", "type": "String", "value": ""})
+        self.vars.append({"name": "session", "type": "Boolean", "value": ""})

@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class TaxCollectorAttackedResultMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class TaxCollectorAttackedResultMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8211
-        self.deadOrAlive = {"type": "Boolean", "value": ""}
-        self.basicInfos = {"type": "TaxCollectorBasicInformations", "value": ""}
-        self.guild = {"type": "BasicGuildInformations", "value": ""}
+        self.vars.append({"name": "deadOrAlive", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "basicInfos", "type": "TaxCollectorBasicInformations", "value": ""})
+        self.vars.append({"name": "guild", "type": "BasicGuildInformations", "value": ""})

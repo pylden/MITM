@@ -1,7 +1,7 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.GameActionFightDispellEffectMessage import GameActionFightDispellEffectMessage
 
 
-class GameActionFightTriggerEffectMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameActionFightTriggerEffectMessage(GameActionFightDispellEffectMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        GameActionFightDispellEffectMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2730

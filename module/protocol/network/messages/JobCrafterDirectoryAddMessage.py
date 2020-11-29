@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class JobCrafterDirectoryAddMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class JobCrafterDirectoryAddMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2605
-        self.listEntry = {"type": "JobCrafterDirectoryListEntry", "value": ""}
+        self.vars.append({"name": "listEntry", "type": "JobCrafterDirectoryListEntry", "value": ""})

@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeReadyMessage import ExchangeReadyMessage
 
 
-class FocusedExchangeReadyMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class FocusedExchangeReadyMessage(ExchangeReadyMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeReadyMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9510
-        self.focusActionId = {"type": "uint", "value": ""}
+        self.vars.append({"name": "focusActionId", "type": "uint", "value": ""})

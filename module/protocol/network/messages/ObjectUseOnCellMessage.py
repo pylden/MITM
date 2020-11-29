@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ObjectUseMessage import ObjectUseMessage
 
 
-class ObjectUseOnCellMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ObjectUseOnCellMessage(ObjectUseMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ObjectUseMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6871
-        self.cells = {"type": "uint", "value": ""}
+        self.vars.append({"name": "cells", "type": "uint", "value": ""})

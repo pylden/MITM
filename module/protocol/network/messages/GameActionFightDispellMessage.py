@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AbstractGameActionMessage import AbstractGameActionMessage
 
 
-class GameActionFightDispellMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameActionFightDispellMessage(AbstractGameActionMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AbstractGameActionMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7134
-        self.targetId = {"type": "Number", "value": ""}
-        self.verboseCast = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "targetId", "type": "Number", "value": ""})
+        self.vars.append({"name": "verboseCast", "type": "Boolean", "value": ""})

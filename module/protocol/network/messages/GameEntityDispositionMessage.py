@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GameEntityDispositionMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameEntityDispositionMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3301
-        self.disposition = {"type": "IdentifiedEntityDispositionInformations", "value": ""}
+        self.vars.append({"name": "disposition", "type": "IdentifiedEntityDispositionInformations", "value": ""})

@@ -1,13 +1,13 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeStartedMessage import ExchangeStartedMessage
 
 
-class ExchangeStartedWithPodsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeStartedWithPodsMessage(ExchangeStartedMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeStartedMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4599
-        self.firstCharacterId = {"type": "Number", "value": ""}
-        self.firstCharacterCurrentWeight = {"type": "uint", "value": ""}
-        self.firstCharacterMaxWeight = {"type": "uint", "value": ""}
-        self.secondCharacterId = {"type": "Number", "value": ""}
-        self.secondCharacterCurrentWeight = {"type": "uint", "value": ""}
-        self.secondCharacterMaxWeight = {"type": "uint", "value": ""}
+        self.vars.append({"name": "firstCharacterId", "type": "Number", "value": ""})
+        self.vars.append({"name": "firstCharacterCurrentWeight", "type": "uint", "value": ""})
+        self.vars.append({"name": "firstCharacterMaxWeight", "type": "uint", "value": ""})
+        self.vars.append({"name": "secondCharacterId", "type": "Number", "value": ""})
+        self.vars.append({"name": "secondCharacterCurrentWeight", "type": "uint", "value": ""})
+        self.vars.append({"name": "secondCharacterMaxWeight", "type": "uint", "value": ""})

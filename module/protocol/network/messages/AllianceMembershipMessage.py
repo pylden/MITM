@@ -1,7 +1,7 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AllianceJoinedMessage import AllianceJoinedMessage
 
 
-class AllianceMembershipMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class AllianceMembershipMessage(AllianceJoinedMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AllianceJoinedMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7070

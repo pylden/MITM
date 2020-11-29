@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AbstractPartyMessage import AbstractPartyMessage
 
 
-class PartyCannotJoinErrorMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PartyCannotJoinErrorMessage(AbstractPartyMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AbstractPartyMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4290
-        self.reason = {"type": "uint", "value": ""}
+        self.vars.append({"name": "reason", "type": "uint", "value": ""})

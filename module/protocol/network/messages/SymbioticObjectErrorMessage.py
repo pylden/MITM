@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ObjectErrorMessage import ObjectErrorMessage
 
 
-class SymbioticObjectErrorMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class SymbioticObjectErrorMessage(ObjectErrorMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ObjectErrorMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1383
-        self.errorCode = {"type": "int", "value": ""}
+        self.vars.append({"name": "errorCode", "type": "int", "value": ""})

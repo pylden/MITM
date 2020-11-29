@@ -1,13 +1,13 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class HouseToSellFilterMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class HouseToSellFilterMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9720
-        self.areaId = {"type": "int", "value": ""}
-        self.atLeastNbRoom = {"type": "uint", "value": ""}
-        self.atLeastNbChest = {"type": "uint", "value": ""}
-        self.skillRequested = {"type": "uint", "value": ""}
-        self.maxPrice = {"type": "Number", "value": ""}
-        self.orderBy = {"type": "uint", "value": ""}
+        self.vars.append({"name": "areaId", "type": "int", "value": ""})
+        self.vars.append({"name": "atLeastNbRoom", "type": "uint", "value": ""})
+        self.vars.append({"name": "atLeastNbChest", "type": "uint", "value": ""})
+        self.vars.append({"name": "skillRequested", "type": "uint", "value": ""})
+        self.vars.append({"name": "maxPrice", "type": "Number", "value": ""})
+        self.vars.append({"name": "orderBy", "type": "uint", "value": ""})

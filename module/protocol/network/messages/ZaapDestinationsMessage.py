@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.TeleportDestinationsMessage import TeleportDestinationsMessage
 
 
-class ZaapDestinationsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ZaapDestinationsMessage(TeleportDestinationsMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        TeleportDestinationsMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7339
-        self.spawnMapId = {"type": "Number", "value": ""}
+        self.vars.append({"name": "spawnMapId", "type": "Number", "value": ""})

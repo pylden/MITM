@@ -1,11 +1,11 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class TitlesAndOrnamentsListMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class TitlesAndOrnamentsListMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7824
-        self.titles = {"type": "Vector.<uint>", "value": ""}
-        self.ornaments = {"type": "Vector.<uint>", "value": ""}
-        self.activeTitle = {"type": "uint", "value": ""}
-        self.activeOrnament = {"type": "uint", "value": ""}
+        self.vars.append({"name": "titles", "type": "Vector.<uint>", "value": ""})
+        self.vars.append({"name": "ornaments", "type": "Vector.<uint>", "value": ""})
+        self.vars.append({"name": "activeTitle", "type": "uint", "value": ""})
+        self.vars.append({"name": "activeOrnament", "type": "uint", "value": ""})

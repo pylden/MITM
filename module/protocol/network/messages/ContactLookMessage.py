@@ -1,11 +1,11 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ContactLookMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ContactLookMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6821
-        self.requestId = {"type": "uint", "value": ""}
-        self.playerName = {"type": "String", "value": ""}
-        self.playerId = {"type": "Number", "value": ""}
-        self.look = {"type": "EntityLook", "value": ""}
+        self.vars.append({"name": "requestId", "type": "uint", "value": ""})
+        self.vars.append({"name": "playerName", "type": "String", "value": ""})
+        self.vars.append({"name": "playerId", "type": "Number", "value": ""})
+        self.vars.append({"name": "look", "type": "EntityLook", "value": ""})

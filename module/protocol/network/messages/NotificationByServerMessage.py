@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class NotificationByServerMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class NotificationByServerMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 312
-        self.id = {"type": "uint", "value": ""}
-        self.parameters = {"type": "Vector.<String>", "value": ""}
-        self.forceOpen = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "id", "type": "uint", "value": ""})
+        self.vars.append({"name": "parameters", "type": "Vector.<String>", "value": ""})
+        self.vars.append({"name": "forceOpen", "type": "Boolean", "value": ""})

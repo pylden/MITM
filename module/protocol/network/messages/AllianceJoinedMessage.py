@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class AllianceJoinedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class AllianceJoinedMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6500
-        self.allianceInfo = {"type": "AllianceInformations", "value": ""}
-        self.enabled = {"type": "Boolean", "value": ""}
-        self.leadingGuildId = {"type": "uint", "value": ""}
+        self.vars.append({"name": "allianceInfo", "type": "AllianceInformations", "value": ""})
+        self.vars.append({"name": "enabled", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "leadingGuildId", "type": "uint", "value": ""})

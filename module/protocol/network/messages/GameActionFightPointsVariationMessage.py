@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AbstractGameActionMessage import AbstractGameActionMessage
 
 
-class GameActionFightPointsVariationMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameActionFightPointsVariationMessage(AbstractGameActionMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AbstractGameActionMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1965
-        self.targetId = {"type": "Number", "value": ""}
-        self.delta = {"type": "int", "value": ""}
+        self.vars.append({"name": "targetId", "type": "Number", "value": ""})
+        self.vars.append({"name": "delta", "type": "int", "value": ""})

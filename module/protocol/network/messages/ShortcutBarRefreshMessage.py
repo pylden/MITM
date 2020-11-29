@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ShortcutBarRefreshMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ShortcutBarRefreshMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9875
-        self.barType = {"type": "uint", "value": ""}
-        self.shortcut = {"type": "Shortcut", "value": ""}
+        self.vars.append({"name": "barType", "type": "uint", "value": ""})
+        self.vars.append({"name": "shortcut", "type": "Shortcut", "value": ""})

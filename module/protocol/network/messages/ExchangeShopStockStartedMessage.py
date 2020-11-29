@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ExchangeShopStockStartedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeShopStockStartedMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3010
-        self.objectsInfos = {"type": "Vector.<ObjectItemToSell>", "value": ""}
+        self.vars.append({"name": "objectsInfos", "type": "Vector.<ObjectItemToSell>", "value": ""})

@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class StorageObjectsUpdateMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class StorageObjectsUpdateMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5590
-        self.objectList = {"type": "Vector.<ObjectItem>", "value": ""}
+        self.vars.append({"name": "objectList", "type": "Vector.<ObjectItem>", "value": ""})

@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class JobCrafterDirectoryDefineSettingsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class JobCrafterDirectoryDefineSettingsMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 832
-        self.settings = {"type": "JobCrafterDirectorySettings", "value": ""}
+        self.vars.append({"name": "settings", "type": "JobCrafterDirectorySettings", "value": ""})

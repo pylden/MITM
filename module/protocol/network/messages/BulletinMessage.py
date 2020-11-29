@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.SocialNoticeMessage import SocialNoticeMessage
 
 
-class BulletinMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class BulletinMessage(SocialNoticeMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        SocialNoticeMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5698
-        self.lastNotifiedTimestamp = {"type": "uint", "value": ""}
+        self.vars.append({"name": "lastNotifiedTimestamp", "type": "uint", "value": ""})

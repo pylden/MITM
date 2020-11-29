@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.GameActionFightDispellMessage import GameActionFightDispellMessage
 
 
-class GameActionFightDispellEffectMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameActionFightDispellEffectMessage(GameActionFightDispellMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        GameActionFightDispellMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 827
-        self.boostUID = {"type": "uint", "value": ""}
+        self.vars.append({"name": "boostUID", "type": "uint", "value": ""})

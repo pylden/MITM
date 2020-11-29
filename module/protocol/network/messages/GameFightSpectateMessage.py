@@ -1,13 +1,13 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GameFightSpectateMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameFightSpectateMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6511
-        self.effects = {"type": "Vector.<FightDispellableEffectExtendedInformations>", "value": ""}
-        self.marks = {"type": "Vector.<GameActionMark>", "value": ""}
-        self.gameTurn = {"type": "uint", "value": ""}
-        self.fightStart = {"type": "uint", "value": ""}
-        self.idols = {"type": "Vector.<Idol>", "value": ""}
-        self.fxTriggerCounts = {"type": "Vector.<GameFightEffectTriggerCount>", "value": ""}
+        self.vars.append({"name": "effects", "type": "Vector.<FightDispellableEffectExtendedInformations>", "value": ""})
+        self.vars.append({"name": "marks", "type": "Vector.<GameActionMark>", "value": ""})
+        self.vars.append({"name": "gameTurn", "type": "uint", "value": ""})
+        self.vars.append({"name": "fightStart", "type": "uint", "value": ""})
+        self.vars.append({"name": "idols", "type": "Vector.<Idol>", "value": ""})
+        self.vars.append({"name": "fxTriggerCounts", "type": "Vector.<GameFightEffectTriggerCount>", "value": ""})

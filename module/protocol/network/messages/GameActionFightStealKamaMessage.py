@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AbstractGameActionMessage import AbstractGameActionMessage
 
 
-class GameActionFightStealKamaMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameActionFightStealKamaMessage(AbstractGameActionMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AbstractGameActionMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7772
-        self.targetId = {"type": "Number", "value": ""}
-        self.amount = {"type": "Number", "value": ""}
+        self.vars.append({"name": "targetId", "type": "Number", "value": ""})
+        self.vars.append({"name": "amount", "type": "Number", "value": ""})

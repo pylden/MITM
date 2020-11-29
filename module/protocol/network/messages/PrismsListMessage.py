@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class PrismsListMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PrismsListMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3577
-        self.prisms = {"type": "Vector.<PrismSubareaEmptyInfo>", "value": ""}
+        self.vars.append({"name": "prisms", "type": "Vector.<PrismSubareaEmptyInfo>", "value": ""})

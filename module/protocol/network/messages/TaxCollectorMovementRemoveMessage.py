@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class TaxCollectorMovementRemoveMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class TaxCollectorMovementRemoveMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6992
-        self.collectorId = {"type": "Number", "value": ""}
+        self.vars.append({"name": "collectorId", "type": "Number", "value": ""})

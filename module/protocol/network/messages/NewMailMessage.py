@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.MailStatusMessage import MailStatusMessage
 
 
-class NewMailMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class NewMailMessage(MailStatusMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        MailStatusMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7617
-        self.sendersAccountId = {"type": "Vector.<uint>", "value": ""}
+        self.vars.append({"name": "sendersAccountId", "type": "Vector.<uint>", "value": ""})

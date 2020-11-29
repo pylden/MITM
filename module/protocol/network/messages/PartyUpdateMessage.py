@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AbstractPartyEventMessage import AbstractPartyEventMessage
 
 
-class PartyUpdateMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PartyUpdateMessage(AbstractPartyEventMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AbstractPartyEventMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4697
-        self.memberInformations = {"type": "PartyMemberInformations", "value": ""}
+        self.vars.append({"name": "memberInformations", "type": "PartyMemberInformations", "value": ""})

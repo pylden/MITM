@@ -1,15 +1,15 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GuildInformationsGeneralMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GuildInformationsGeneralMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5234
-        self.abandonnedPaddock = {"type": "Boolean", "value": ""}
-        self.level = {"type": "uint", "value": ""}
-        self.expLevelFloor = {"type": "Number", "value": ""}
-        self.experience = {"type": "Number", "value": ""}
-        self.expNextLevelFloor = {"type": "Number", "value": ""}
-        self.creationDate = {"type": "uint", "value": ""}
-        self.nbTotalMembers = {"type": "uint", "value": ""}
-        self.nbConnectedMembers = {"type": "uint", "value": ""}
+        self.vars.append({"name": "abandonnedPaddock", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "level", "type": "uint", "value": ""})
+        self.vars.append({"name": "expLevelFloor", "type": "Number", "value": ""})
+        self.vars.append({"name": "experience", "type": "Number", "value": ""})
+        self.vars.append({"name": "expNextLevelFloor", "type": "Number", "value": ""})
+        self.vars.append({"name": "creationDate", "type": "uint", "value": ""})
+        self.vars.append({"name": "nbTotalMembers", "type": "uint", "value": ""})
+        self.vars.append({"name": "nbConnectedMembers", "type": "uint", "value": ""})

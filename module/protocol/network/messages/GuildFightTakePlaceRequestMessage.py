@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.GuildFightJoinRequestMessage import GuildFightJoinRequestMessage
 
 
-class GuildFightTakePlaceRequestMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GuildFightTakePlaceRequestMessage(GuildFightJoinRequestMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        GuildFightJoinRequestMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8763
-        self.replacedCharacterId = {"type": "int", "value": ""}
+        self.vars.append({"name": "replacedCharacterId", "type": "int", "value": ""})

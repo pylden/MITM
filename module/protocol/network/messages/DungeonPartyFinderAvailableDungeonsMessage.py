@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class DungeonPartyFinderAvailableDungeonsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class DungeonPartyFinderAvailableDungeonsMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1350
-        self.dungeonIds = {"type": "Vector.<uint>", "value": ""}
+        self.vars.append({"name": "dungeonIds", "type": "Vector.<uint>", "value": ""})

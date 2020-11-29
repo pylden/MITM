@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.MapComplementaryInformationsDataMessage import MapComplementaryInformationsDataMessage
 
 
-class MapComplementaryInformationsWithCoordsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class MapComplementaryInformationsWithCoordsMessage(MapComplementaryInformationsDataMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        MapComplementaryInformationsDataMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8121
-        self.worldX = {"type": "int", "value": ""}
-        self.worldY = {"type": "int", "value": ""}
+        self.vars.append({"name": "worldX", "type": "int", "value": ""})
+        self.vars.append({"name": "worldY", "type": "int", "value": ""})

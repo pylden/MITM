@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class AcquaintancesListMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class AcquaintancesListMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1163
-        self.acquaintanceList = {"type": "Vector.<AcquaintanceInformation>", "value": ""}
+        self.vars.append({"name": "acquaintanceList", "type": "Vector.<AcquaintanceInformation>", "value": ""})

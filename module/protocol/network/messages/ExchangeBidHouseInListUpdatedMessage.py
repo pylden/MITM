@@ -1,7 +1,7 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeBidHouseInListAddedMessage import ExchangeBidHouseInListAddedMessage
 
 
-class ExchangeBidHouseInListUpdatedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeBidHouseInListUpdatedMessage(ExchangeBidHouseInListAddedMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeBidHouseInListAddedMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5016

@@ -1,12 +1,12 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class HouseSellingUpdateMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class HouseSellingUpdateMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5119
-        self.houseId = {"type": "uint", "value": ""}
-        self.instanceId = {"type": "uint", "value": ""}
-        self.secondHand = {"type": "Boolean", "value": ""}
-        self.realPrice = {"type": "Number", "value": ""}
-        self.buyerName = {"type": "String", "value": ""}
+        self.vars.append({"name": "houseId", "type": "uint", "value": ""})
+        self.vars.append({"name": "instanceId", "type": "uint", "value": ""})
+        self.vars.append({"name": "secondHand", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "realPrice", "type": "Number", "value": ""})
+        self.vars.append({"name": "buyerName", "type": "String", "value": ""})

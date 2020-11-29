@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class AccountHouseMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class AccountHouseMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1800
-        self.houses = {"type": "Vector.<AccountHouseInformations>", "value": ""}
+        self.vars.append({"name": "houses", "type": "Vector.<AccountHouseInformations>", "value": ""})

@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.PartyInvitationDetailsMessage import PartyInvitationDetailsMessage
 
 
-class PartyInvitationDungeonDetailsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PartyInvitationDungeonDetailsMessage(PartyInvitationDetailsMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        PartyInvitationDetailsMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6340
-        self.dungeonId = {"type": "uint", "value": ""}
-        self.playersDungeonReady = {"type": "Vector.<Boolean>", "value": ""}
+        self.vars.append({"name": "dungeonId", "type": "uint", "value": ""})
+        self.vars.append({"name": "playersDungeonReady", "type": "Vector.<Boolean>", "value": ""})

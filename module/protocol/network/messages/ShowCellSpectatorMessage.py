@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ShowCellMessage import ShowCellMessage
 
 
-class ShowCellSpectatorMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ShowCellSpectatorMessage(ShowCellMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ShowCellMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6554
-        self.playerName = {"type": "String", "value": ""}
+        self.vars.append({"name": "playerName", "type": "String", "value": ""})

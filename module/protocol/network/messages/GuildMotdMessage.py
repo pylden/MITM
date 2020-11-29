@@ -1,7 +1,7 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.SocialNoticeMessage import SocialNoticeMessage
 
 
-class GuildMotdMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GuildMotdMessage(SocialNoticeMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        SocialNoticeMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8244

@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ChatClientMultiMessage import ChatClientMultiMessage
 
 
-class ChatClientMultiWithObjectMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ChatClientMultiWithObjectMessage(ChatClientMultiMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ChatClientMultiMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 85
-        self.objects = {"type": "Vector.<ObjectItem>", "value": ""}
+        self.vars.append({"name": "objects", "type": "Vector.<ObjectItem>", "value": ""})

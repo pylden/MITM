@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class TeleportBuddiesRequestedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class TeleportBuddiesRequestedMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9376
-        self.dungeonId = {"type": "uint", "value": ""}
-        self.inviterId = {"type": "Number", "value": ""}
-        self.invalidBuddiesIds = {"type": "Vector.<Number>", "value": ""}
+        self.vars.append({"name": "dungeonId", "type": "uint", "value": ""})
+        self.vars.append({"name": "inviterId", "type": "Number", "value": ""})
+        self.vars.append({"name": "invalidBuddiesIds", "type": "Vector.<Number>", "value": ""})

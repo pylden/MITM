@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class PaddockPropertiesMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PaddockPropertiesMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7932
-        self.properties = {"type": "PaddockInstancesInformations", "value": ""}
+        self.vars.append({"name": "properties", "type": "PaddockInstancesInformations", "value": ""})

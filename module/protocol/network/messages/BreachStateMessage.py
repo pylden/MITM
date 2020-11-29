@@ -1,11 +1,11 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class BreachStateMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class BreachStateMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4331
-        self.owner = {"type": "CharacterMinimalInformations", "value": ""}
-        self.bonuses = {"type": "Vector.<ObjectEffectInteger>", "value": ""}
-        self.bugdet = {"type": "uint", "value": ""}
-        self.saved = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "owner", "type": "CharacterMinimalInformations", "value": ""})
+        self.vars.append({"name": "bonuses", "type": "Vector.<ObjectEffectInteger>", "value": ""})
+        self.vars.append({"name": "bugdet", "type": "uint", "value": ""})
+        self.vars.append({"name": "saved", "type": "Boolean", "value": ""})

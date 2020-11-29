@@ -1,12 +1,12 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class PurchasableDialogMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PurchasableDialogMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6734
-        self.buyOrSell = {"type": "Boolean", "value": ""}
-        self.purchasableId = {"type": "Number", "value": ""}
-        self.purchasableInstanceId = {"type": "uint", "value": ""}
-        self.secondHand = {"type": "Boolean", "value": ""}
-        self.price = {"type": "Number", "value": ""}
+        self.vars.append({"name": "buyOrSell", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "purchasableId", "type": "Number", "value": ""})
+        self.vars.append({"name": "purchasableInstanceId", "type": "uint", "value": ""})
+        self.vars.append({"name": "secondHand", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "price", "type": "Number", "value": ""})

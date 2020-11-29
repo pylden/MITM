@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class FollowedQuestsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class FollowedQuestsMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9768
-        self.quests = {"type": "Vector.<QuestActiveDetailedInformations>", "value": ""}
+        self.vars.append({"name": "quests", "type": "Vector.<QuestActiveDetailedInformations>", "value": ""})

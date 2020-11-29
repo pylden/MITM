@@ -1,14 +1,14 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class TaxCollectorAttackedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class TaxCollectorAttackedMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4380
-        self.firstNameId = {"type": "uint", "value": ""}
-        self.lastNameId = {"type": "uint", "value": ""}
-        self.worldX = {"type": "int", "value": ""}
-        self.worldY = {"type": "int", "value": ""}
-        self.mapId = {"type": "Number", "value": ""}
-        self.subAreaId = {"type": "uint", "value": ""}
-        self.guild = {"type": "BasicGuildInformations", "value": ""}
+        self.vars.append({"name": "firstNameId", "type": "uint", "value": ""})
+        self.vars.append({"name": "lastNameId", "type": "uint", "value": ""})
+        self.vars.append({"name": "worldX", "type": "int", "value": ""})
+        self.vars.append({"name": "worldY", "type": "int", "value": ""})
+        self.vars.append({"name": "mapId", "type": "Number", "value": ""})
+        self.vars.append({"name": "subAreaId", "type": "uint", "value": ""})
+        self.vars.append({"name": "guild", "type": "BasicGuildInformations", "value": ""})

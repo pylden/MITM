@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ExchangeIsReadyMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeIsReadyMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2446
-        self.id = {"type": "Number", "value": ""}
-        self.ready = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "id", "type": "Number", "value": ""})
+        self.vars.append({"name": "ready", "type": "Boolean", "value": ""})

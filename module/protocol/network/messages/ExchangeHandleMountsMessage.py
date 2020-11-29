@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ExchangeHandleMountsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeHandleMountsMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3008
-        self.actionType = {"type": "int", "value": ""}
-        self.ridesId = {"type": "Vector.<uint>", "value": ""}
+        self.vars.append({"name": "actionType", "type": "int", "value": ""})
+        self.vars.append({"name": "ridesId", "type": "Vector.<uint>", "value": ""})

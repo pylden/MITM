@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class MountRenameRequestMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class MountRenameRequestMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9887
-        self.name = {"type": "String", "value": ""}
-        self.mountId = {"type": "int", "value": ""}
+        self.vars.append({"name": "name", "type": "String", "value": ""})
+        self.vars.append({"name": "mountId", "type": "int", "value": ""})

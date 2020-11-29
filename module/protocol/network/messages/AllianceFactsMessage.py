@@ -1,12 +1,12 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class AllianceFactsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class AllianceFactsMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9721
-        self.infos = {"type": "AllianceFactSheetInformations", "value": ""}
-        self.guilds = {"type": "Vector.<GuildInAllianceInformations>", "value": ""}
-        self.controlledSubareaIds = {"type": "Vector.<uint>", "value": ""}
-        self.leaderCharacterId = {"type": "Number", "value": ""}
-        self.leaderCharacterName = {"type": "String", "value": ""}
+        self.vars.append({"name": "infos", "type": "AllianceFactSheetInformations", "value": ""})
+        self.vars.append({"name": "guilds", "type": "Vector.<GuildInAllianceInformations>", "value": ""})
+        self.vars.append({"name": "controlledSubareaIds", "type": "Vector.<uint>", "value": ""})
+        self.vars.append({"name": "leaderCharacterId", "type": "Number", "value": ""})
+        self.vars.append({"name": "leaderCharacterName", "type": "String", "value": ""})

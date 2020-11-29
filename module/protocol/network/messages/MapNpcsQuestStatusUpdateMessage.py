@@ -1,11 +1,11 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class MapNpcsQuestStatusUpdateMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class MapNpcsQuestStatusUpdateMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1168
-        self.mapId = {"type": "Number", "value": ""}
-        self.npcsIdsWithQuest = {"type": "Vector.<int>", "value": ""}
-        self.questFlags = {"type": "Vector.<GameRolePlayNpcQuestFlag>", "value": ""}
-        self.npcsIdsWithoutQuest = {"type": "Vector.<int>", "value": ""}
+        self.vars.append({"name": "mapId", "type": "Number", "value": ""})
+        self.vars.append({"name": "npcsIdsWithQuest", "type": "Vector.<int>", "value": ""})
+        self.vars.append({"name": "questFlags", "type": "Vector.<GameRolePlayNpcQuestFlag>", "value": ""})
+        self.vars.append({"name": "npcsIdsWithoutQuest", "type": "Vector.<int>", "value": ""})

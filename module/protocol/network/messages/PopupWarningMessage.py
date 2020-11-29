@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class PopupWarningMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PopupWarningMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6411
-        self.lockDuration = {"type": "uint", "value": ""}
-        self.author = {"type": "String", "value": ""}
-        self.content = {"type": "String", "value": ""}
+        self.vars.append({"name": "lockDuration", "type": "uint", "value": ""})
+        self.vars.append({"name": "author", "type": "String", "value": ""})
+        self.vars.append({"name": "content", "type": "String", "value": ""})

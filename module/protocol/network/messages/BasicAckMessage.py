@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class BasicAckMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class BasicAckMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4378
-        self.seq = {"type": "uint", "value": ""}
-        self.lastPacketId = {"type": "uint", "value": ""}
+        self.vars.append({"name": "seq", "type": "uint", "value": ""})
+        self.vars.append({"name": "lastPacketId", "type": "uint", "value": ""})

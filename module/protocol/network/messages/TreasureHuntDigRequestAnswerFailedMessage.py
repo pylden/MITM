@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.TreasureHuntDigRequestAnswerMessage import TreasureHuntDigRequestAnswerMessage
 
 
-class TreasureHuntDigRequestAnswerFailedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class TreasureHuntDigRequestAnswerFailedMessage(TreasureHuntDigRequestAnswerMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        TreasureHuntDigRequestAnswerMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5389
-        self.wrongFlagCount = {"type": "uint", "value": ""}
+        self.vars.append({"name": "wrongFlagCount", "type": "uint", "value": ""})

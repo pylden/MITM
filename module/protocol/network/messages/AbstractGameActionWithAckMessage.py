@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AbstractGameActionMessage import AbstractGameActionMessage
 
 
-class AbstractGameActionWithAckMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class AbstractGameActionWithAckMessage(AbstractGameActionMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AbstractGameActionMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1777
-        self.waitAckId = {"type": "int", "value": ""}
+        self.vars.append({"name": "waitAckId", "type": "int", "value": ""})

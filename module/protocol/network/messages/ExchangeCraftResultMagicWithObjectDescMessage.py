@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeCraftResultWithObjectDescMessage import ExchangeCraftResultWithObjectDescMessage
 
 
-class ExchangeCraftResultMagicWithObjectDescMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeCraftResultMagicWithObjectDescMessage(ExchangeCraftResultWithObjectDescMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeCraftResultWithObjectDescMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 819
-        self.magicPoolStatus = {"type": "int", "value": ""}
+        self.vars.append({"name": "magicPoolStatus", "type": "int", "value": ""})

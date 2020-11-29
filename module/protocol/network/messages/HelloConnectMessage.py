@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class HelloConnectMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class HelloConnectMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2607
-        self.salt = {"type": "String", "value": ""}
-        self.key = {"type": "Vector.<int>", "value": ""}
+        self.vars.append({"name": "salt", "type": "String", "value": ""})
+        self.vars.append({"name": "key", "type": "Vector.<int>", "value": ""})

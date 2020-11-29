@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.CharacterReplayRequestMessage import CharacterReplayRequestMessage
 
 
-class CharacterReplayWithRemodelRequestMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class CharacterReplayWithRemodelRequestMessage(CharacterReplayRequestMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        CharacterReplayRequestMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9190
-        self.remodel = {"type": "RemodelingInformation", "value": ""}
+        self.vars.append({"name": "remodel", "type": "RemodelingInformation", "value": ""})

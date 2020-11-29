@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeRequestMessage import ExchangeRequestMessage
 
 
-class ExchangePlayerRequestMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangePlayerRequestMessage(ExchangeRequestMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeRequestMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9521
-        self.target = {"type": "Number", "value": ""}
+        self.vars.append({"name": "target", "type": "Number", "value": ""})

@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ExchangeBidHouseUnsoldItemsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeBidHouseUnsoldItemsMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5367
-        self.items = {"type": "Vector.<ObjectItemGenericQuantity>", "value": ""}
+        self.vars.append({"name": "items", "type": "Vector.<ObjectItemGenericQuantity>", "value": ""})

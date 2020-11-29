@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeObjectMessage import ExchangeObjectMessage
 
 
-class ExchangeObjectAddedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeObjectAddedMessage(ExchangeObjectMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeObjectMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 88
-        self.object = {"type": "ObjectItem", "value": ""}
+        self.vars.append({"name": "object", "type": "ObjectItem", "value": ""})

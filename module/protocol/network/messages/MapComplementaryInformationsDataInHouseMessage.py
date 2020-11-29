@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.MapComplementaryInformationsDataMessage import MapComplementaryInformationsDataMessage
 
 
-class MapComplementaryInformationsDataInHouseMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class MapComplementaryInformationsDataInHouseMessage(MapComplementaryInformationsDataMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        MapComplementaryInformationsDataMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4292
-        self.currentHouse = {"type": "HouseInformationsInside", "value": ""}
+        self.vars.append({"name": "currentHouse", "type": "HouseInformationsInside", "value": ""})

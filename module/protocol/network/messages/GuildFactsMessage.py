@@ -1,11 +1,11 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GuildFactsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GuildFactsMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6652
-        self.infos = {"type": "GuildFactSheetInformations", "value": ""}
-        self.creationDate = {"type": "uint", "value": ""}
-        self.nbTaxCollectors = {"type": "uint", "value": ""}
-        self.members = {"type": "Vector.<CharacterMinimalGuildPublicInformations>", "value": ""}
+        self.vars.append({"name": "infos", "type": "GuildFactSheetInformations", "value": ""})
+        self.vars.append({"name": "creationDate", "type": "uint", "value": ""})
+        self.vars.append({"name": "nbTaxCollectors", "type": "uint", "value": ""})
+        self.vars.append({"name": "members", "type": "Vector.<CharacterMinimalGuildPublicInformations>", "value": ""})

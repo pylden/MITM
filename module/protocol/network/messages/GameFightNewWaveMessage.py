@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GameFightNewWaveMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameFightNewWaveMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5791
-        self.id = {"type": "uint", "value": ""}
-        self.teamId = {"type": "uint", "value": ""}
-        self.nbTurnBeforeNextWave = {"type": "int", "value": ""}
+        self.vars.append({"name": "id", "type": "uint", "value": ""})
+        self.vars.append({"name": "teamId", "type": "uint", "value": ""})
+        self.vars.append({"name": "nbTurnBeforeNextWave", "type": "int", "value": ""})

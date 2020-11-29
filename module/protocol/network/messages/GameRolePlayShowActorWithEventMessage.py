@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.GameRolePlayShowActorMessage import GameRolePlayShowActorMessage
 
 
-class GameRolePlayShowActorWithEventMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameRolePlayShowActorWithEventMessage(GameRolePlayShowActorMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        GameRolePlayShowActorMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1817
-        self.actorEventId = {"type": "uint", "value": ""}
+        self.vars.append({"name": "actorEventId", "type": "uint", "value": ""})

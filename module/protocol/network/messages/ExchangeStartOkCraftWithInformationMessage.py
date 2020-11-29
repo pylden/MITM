@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeStartOkCraftMessage import ExchangeStartOkCraftMessage
 
 
-class ExchangeStartOkCraftWithInformationMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeStartOkCraftWithInformationMessage(ExchangeStartOkCraftMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeStartOkCraftMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7187
-        self.skillId = {"type": "uint", "value": ""}
+        self.vars.append({"name": "skillId", "type": "uint", "value": ""})

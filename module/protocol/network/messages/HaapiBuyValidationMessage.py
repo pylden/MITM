@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.HaapiValidationMessage import HaapiValidationMessage
 
 
-class HaapiBuyValidationMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class HaapiBuyValidationMessage(HaapiValidationMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        HaapiValidationMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7568
-        self.amount = {"type": "Number", "value": ""}
-        self.email = {"type": "String", "value": ""}
+        self.vars.append({"name": "amount", "type": "Number", "value": ""})
+        self.vars.append({"name": "email", "type": "String", "value": ""})

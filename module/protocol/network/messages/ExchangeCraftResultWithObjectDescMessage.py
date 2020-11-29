@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeCraftResultMessage import ExchangeCraftResultMessage
 
 
-class ExchangeCraftResultWithObjectDescMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeCraftResultWithObjectDescMessage(ExchangeCraftResultMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeCraftResultMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8570
-        self.objectInfo = {"type": "ObjectItemNotInContainer", "value": ""}
+        self.vars.append({"name": "objectInfo", "type": "ObjectItemNotInContainer", "value": ""})

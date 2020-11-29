@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.IdentificationMessage import IdentificationMessage
 
 
-class IdentificationAccountForceMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class IdentificationAccountForceMessage(IdentificationMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        IdentificationMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4388
-        self.forcedAccountLogin = {"type": "String", "value": ""}
+        self.vars.append({"name": "forcedAccountLogin", "type": "String", "value": ""})

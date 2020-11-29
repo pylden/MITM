@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GameRolePlayArenaFighterStatusMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameRolePlayArenaFighterStatusMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7701
-        self.fightId = {"type": "uint", "value": ""}
-        self.playerId = {"type": "Number", "value": ""}
-        self.accepted = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "fightId", "type": "uint", "value": ""})
+        self.vars.append({"name": "playerId", "type": "Number", "value": ""})
+        self.vars.append({"name": "accepted", "type": "Boolean", "value": ""})

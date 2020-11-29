@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeStartedMessage import ExchangeStartedMessage
 
 
-class ExchangeStartedWithStorageMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeStartedWithStorageMessage(ExchangeStartedMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeStartedMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8605
-        self.storageMaxSlot = {"type": "uint", "value": ""}
+        self.vars.append({"name": "storageMaxSlot", "type": "uint", "value": ""})

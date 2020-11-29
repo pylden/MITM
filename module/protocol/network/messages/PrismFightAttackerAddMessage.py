@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class PrismFightAttackerAddMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PrismFightAttackerAddMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2846
-        self.subAreaId = {"type": "uint", "value": ""}
-        self.fightId = {"type": "uint", "value": ""}
-        self.attacker = {"type": "CharacterMinimalPlusLookInformations", "value": ""}
+        self.vars.append({"name": "subAreaId", "type": "uint", "value": ""})
+        self.vars.append({"name": "fightId", "type": "uint", "value": ""})
+        self.vars.append({"name": "attacker", "type": "CharacterMinimalPlusLookInformations", "value": ""})

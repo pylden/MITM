@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class IdolListMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class IdolListMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9934
-        self.chosenIdols = {"type": "Vector.<uint>", "value": ""}
-        self.partyChosenIdols = {"type": "Vector.<uint>", "value": ""}
-        self.partyIdols = {"type": "Vector.<PartyIdol>", "value": ""}
+        self.vars.append({"name": "chosenIdols", "type": "Vector.<uint>", "value": ""})
+        self.vars.append({"name": "partyChosenIdols", "type": "Vector.<uint>", "value": ""})
+        self.vars.append({"name": "partyIdols", "type": "Vector.<PartyIdol>", "value": ""})

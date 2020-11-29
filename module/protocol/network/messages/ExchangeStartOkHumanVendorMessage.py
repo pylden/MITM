@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ExchangeStartOkHumanVendorMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeStartOkHumanVendorMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5999
-        self.sellerId = {"type": "Number", "value": ""}
-        self.objectsInfos = {"type": "Vector.<ObjectItemToSellInHumanVendorShop>", "value": ""}
+        self.vars.append({"name": "sellerId", "type": "Number", "value": ""})
+        self.vars.append({"name": "objectsInfos", "type": "Vector.<ObjectItemToSellInHumanVendorShop>", "value": ""})

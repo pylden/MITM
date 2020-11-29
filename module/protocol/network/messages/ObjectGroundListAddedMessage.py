@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ObjectGroundListAddedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ObjectGroundListAddedMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1696
-        self.cells = {"type": "Vector.<uint>", "value": ""}
-        self.referenceIds = {"type": "Vector.<uint>", "value": ""}
+        self.vars.append({"name": "cells", "type": "Vector.<uint>", "value": ""})
+        self.vars.append({"name": "referenceIds", "type": "Vector.<uint>", "value": ""})

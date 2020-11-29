@@ -1,7 +1,7 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.GuildJoinedMessage import GuildJoinedMessage
 
 
-class GuildMembershipMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GuildMembershipMessage(GuildJoinedMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        GuildJoinedMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1467

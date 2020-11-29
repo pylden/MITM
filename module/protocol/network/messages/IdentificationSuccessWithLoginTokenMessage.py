@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.IdentificationSuccessMessage import IdentificationSuccessMessage
 
 
-class IdentificationSuccessWithLoginTokenMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class IdentificationSuccessWithLoginTokenMessage(IdentificationSuccessMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        IdentificationSuccessMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5260
-        self.loginToken = {"type": "String", "value": ""}
+        self.vars.append({"name": "loginToken", "type": "String", "value": ""})

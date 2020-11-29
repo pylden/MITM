@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ChatAbstractClientMessage import ChatAbstractClientMessage
 
 
-class ChatClientPrivateMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ChatClientPrivateMessage(ChatAbstractClientMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ChatAbstractClientMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9769
-        self.receiver = {"type": "String", "value": ""}
+        self.vars.append({"name": "receiver", "type": "String", "value": ""})

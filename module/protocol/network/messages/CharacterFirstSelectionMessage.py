@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.CharacterSelectionMessage import CharacterSelectionMessage
 
 
-class CharacterFirstSelectionMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class CharacterFirstSelectionMessage(CharacterSelectionMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        CharacterSelectionMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1228
-        self.doTutorial = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "doTutorial", "type": "Boolean", "value": ""})

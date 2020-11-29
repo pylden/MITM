@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ObtainedItemMessage import ObtainedItemMessage
 
 
-class ObtainedItemWithBonusMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ObtainedItemWithBonusMessage(ObtainedItemMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ObtainedItemMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2422
-        self.bonusQuantity = {"type": "uint", "value": ""}
+        self.vars.append({"name": "bonusQuantity", "type": "uint", "value": ""})

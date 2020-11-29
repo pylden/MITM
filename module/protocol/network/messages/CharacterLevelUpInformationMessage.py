@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.CharacterLevelUpMessage import CharacterLevelUpMessage
 
 
-class CharacterLevelUpInformationMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class CharacterLevelUpInformationMessage(CharacterLevelUpMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        CharacterLevelUpMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1775
-        self.name = {"type": "String", "value": ""}
-        self.id = {"type": "Number", "value": ""}
+        self.vars.append({"name": "name", "type": "String", "value": ""})
+        self.vars.append({"name": "id", "type": "Number", "value": ""})

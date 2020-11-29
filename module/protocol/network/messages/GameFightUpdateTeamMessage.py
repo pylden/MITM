@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GameFightUpdateTeamMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameFightUpdateTeamMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8783
-        self.fightId = {"type": "uint", "value": ""}
-        self.team = {"type": "FightTeamInformations", "value": ""}
+        self.vars.append({"name": "fightId", "type": "uint", "value": ""})
+        self.vars.append({"name": "team", "type": "FightTeamInformations", "value": ""})

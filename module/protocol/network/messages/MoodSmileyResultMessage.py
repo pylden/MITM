@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class MoodSmileyResultMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class MoodSmileyResultMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3199
-        self.resultCode = {"type": "uint", "value": ""}
-        self.smileyId = {"type": "uint", "value": ""}
+        self.vars.append({"name": "resultCode", "type": "uint", "value": ""})
+        self.vars.append({"name": "smileyId", "type": "uint", "value": ""})

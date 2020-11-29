@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class DebtsUpdateMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class DebtsUpdateMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3503
-        self.action = {"type": "uint", "value": ""}
-        self.debts = {"type": "Vector.<DebtInformation>", "value": ""}
+        self.vars.append({"name": "action", "type": "uint", "value": ""})
+        self.vars.append({"name": "debts", "type": "Vector.<DebtInformation>", "value": ""})

@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ExchangeBidHouseBuyResultMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeBidHouseBuyResultMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3583
-        self.uid = {"type": "uint", "value": ""}
-        self.bought = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "uid", "type": "uint", "value": ""})
+        self.vars.append({"name": "bought", "type": "Boolean", "value": ""})

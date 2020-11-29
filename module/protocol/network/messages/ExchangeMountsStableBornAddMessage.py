@@ -1,7 +1,7 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ExchangeMountsStableAddMessage import ExchangeMountsStableAddMessage
 
 
-class ExchangeMountsStableBornAddMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeMountsStableBornAddMessage(ExchangeMountsStableAddMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ExchangeMountsStableAddMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8651

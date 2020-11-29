@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class UpdateMountCharacteristicsMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class UpdateMountCharacteristicsMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9975
-        self.rideId = {"type": "int", "value": ""}
-        self.boostToUpdateList = {"type": "Vector.<UpdateMountCharacteristic>", "value": ""}
+        self.vars.append({"name": "rideId", "type": "int", "value": ""})
+        self.vars.append({"name": "boostToUpdateList", "type": "Vector.<UpdateMountCharacteristic>", "value": ""})

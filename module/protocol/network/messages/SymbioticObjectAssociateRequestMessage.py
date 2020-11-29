@@ -1,11 +1,11 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class SymbioticObjectAssociateRequestMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class SymbioticObjectAssociateRequestMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5840
-        self.symbioteUID = {"type": "uint", "value": ""}
-        self.symbiotePos = {"type": "uint", "value": ""}
-        self.hostUID = {"type": "uint", "value": ""}
-        self.hostPos = {"type": "uint", "value": ""}
+        self.vars.append({"name": "symbioteUID", "type": "uint", "value": ""})
+        self.vars.append({"name": "symbiotePos", "type": "uint", "value": ""})
+        self.vars.append({"name": "hostUID", "type": "uint", "value": ""})
+        self.vars.append({"name": "hostPos", "type": "uint", "value": ""})

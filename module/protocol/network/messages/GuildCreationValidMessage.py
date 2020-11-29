@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GuildCreationValidMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GuildCreationValidMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4933
-        self.guildName = {"type": "String", "value": ""}
-        self.guildEmblem = {"type": "GuildEmblem", "value": ""}
+        self.vars.append({"name": "guildName", "type": "String", "value": ""})
+        self.vars.append({"name": "guildEmblem", "type": "GuildEmblem", "value": ""})

@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class PaddockSellBuyDialogMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PaddockSellBuyDialogMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3281
-        self.bsell = {"type": "Boolean", "value": ""}
-        self.ownerId = {"type": "uint", "value": ""}
-        self.price = {"type": "Number", "value": ""}
+        self.vars.append({"name": "bsell", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "ownerId", "type": "uint", "value": ""})
+        self.vars.append({"name": "price", "type": "Number", "value": ""})

@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GuildModificationStartedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GuildModificationStartedMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2536
-        self.canChangeName = {"type": "Boolean", "value": ""}
-        self.canChangeEmblem = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "canChangeName", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "canChangeEmblem", "type": "Boolean", "value": ""})

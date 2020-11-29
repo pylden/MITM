@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AbstractPartyMessage import AbstractPartyMessage
 
 
-class PartyNameSetRequestMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PartyNameSetRequestMessage(AbstractPartyMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AbstractPartyMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1262
-        self.partyName = {"type": "String", "value": ""}
+        self.vars.append({"name": "partyName", "type": "String", "value": ""})

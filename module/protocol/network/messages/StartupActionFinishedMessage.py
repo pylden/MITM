@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class StartupActionFinishedMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class StartupActionFinishedMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3256
-        self.success = {"type": "Boolean", "value": ""}
-        self.actionId = {"type": "uint", "value": ""}
-        self.automaticAction = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "success", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "actionId", "type": "uint", "value": ""})
+        self.vars.append({"name": "automaticAction", "type": "Boolean", "value": ""})

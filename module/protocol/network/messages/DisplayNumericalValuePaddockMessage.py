@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class DisplayNumericalValuePaddockMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class DisplayNumericalValuePaddockMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5107
-        self.rideId = {"type": "int", "value": ""}
-        self.value = {"type": "int", "value": ""}
-        self.type = {"type": "uint", "value": ""}
+        self.vars.append({"name": "rideId", "type": "int", "value": ""})
+        self.vars.append({"name": "value", "type": "int", "value": ""})
+        self.vars.append({"name": "type", "type": "uint", "value": ""})

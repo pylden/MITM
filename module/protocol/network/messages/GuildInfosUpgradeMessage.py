@@ -1,17 +1,17 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GuildInfosUpgradeMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GuildInfosUpgradeMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2143
-        self.maxTaxCollectorsCount = {"type": "uint", "value": ""}
-        self.taxCollectorsCount = {"type": "uint", "value": ""}
-        self.taxCollectorLifePoints = {"type": "uint", "value": ""}
-        self.taxCollectorDamagesBonuses = {"type": "uint", "value": ""}
-        self.taxCollectorPods = {"type": "uint", "value": ""}
-        self.taxCollectorProspecting = {"type": "uint", "value": ""}
-        self.taxCollectorWisdom = {"type": "uint", "value": ""}
-        self.boostPoints = {"type": "uint", "value": ""}
-        self.spellId = {"type": "Vector.<uint>", "value": ""}
-        self.spellLevel = {"type": "Vector.<int>", "value": ""}
+        self.vars.append({"name": "maxTaxCollectorsCount", "type": "uint", "value": ""})
+        self.vars.append({"name": "taxCollectorsCount", "type": "uint", "value": ""})
+        self.vars.append({"name": "taxCollectorLifePoints", "type": "uint", "value": ""})
+        self.vars.append({"name": "taxCollectorDamagesBonuses", "type": "uint", "value": ""})
+        self.vars.append({"name": "taxCollectorPods", "type": "uint", "value": ""})
+        self.vars.append({"name": "taxCollectorProspecting", "type": "uint", "value": ""})
+        self.vars.append({"name": "taxCollectorWisdom", "type": "uint", "value": ""})
+        self.vars.append({"name": "boostPoints", "type": "uint", "value": ""})
+        self.vars.append({"name": "spellId", "type": "Vector.<uint>", "value": ""})
+        self.vars.append({"name": "spellLevel", "type": "Vector.<int>", "value": ""})

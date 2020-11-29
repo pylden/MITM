@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.BasicCharactersListMessage import BasicCharactersListMessage
 
 
-class CharactersListMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class CharactersListMessage(BasicCharactersListMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        BasicCharactersListMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9869
-        self.hasStartupActions = {"type": "Boolean", "value": ""}
+        self.vars.append({"name": "hasStartupActions", "type": "Boolean", "value": ""})

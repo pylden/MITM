@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ChallengeTargetUpdateMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ChallengeTargetUpdateMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3277
-        self.challengeId = {"type": "uint", "value": ""}
-        self.targetId = {"type": "Number", "value": ""}
+        self.vars.append({"name": "challengeId", "type": "uint", "value": ""})
+        self.vars.append({"name": "targetId", "type": "Number", "value": ""})

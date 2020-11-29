@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.ChatAbstractClientMessage import ChatAbstractClientMessage
 
 
-class ChatClientMultiMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ChatClientMultiMessage(ChatAbstractClientMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        ChatAbstractClientMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5022
-        self.channel = {"type": "uint", "value": ""}
+        self.vars.append({"name": "channel", "type": "uint", "value": ""})

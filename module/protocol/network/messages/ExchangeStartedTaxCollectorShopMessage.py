@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class ExchangeStartedTaxCollectorShopMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class ExchangeStartedTaxCollectorShopMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8259
-        self.objects = {"type": "Vector.<ObjectItem>", "value": ""}
-        self.kamas = {"type": "Number", "value": ""}
+        self.vars.append({"name": "objects", "type": "Vector.<ObjectItem>", "value": ""})
+        self.vars.append({"name": "kamas", "type": "Number", "value": ""})

@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class GameRolePlayArenaRegistrationStatusMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameRolePlayArenaRegistrationStatusMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2867
-        self.registered = {"type": "Boolean", "value": ""}
-        self.step = {"type": "uint", "value": ""}
-        self.battleMode = {"type": "uint", "value": ""}
+        self.vars.append({"name": "registered", "type": "Boolean", "value": ""})
+        self.vars.append({"name": "step", "type": "uint", "value": ""})
+        self.vars.append({"name": "battleMode", "type": "uint", "value": ""})

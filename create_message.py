@@ -25,23 +25,19 @@ for name in filelist:
             listt.append(classname)
             dicto[int(id)] = classname
             vars = re.findall(r"public var (\S+):(\S+)[ |;]", read)
-            write_class = file_example.replace("IDMESSAGE", id).replace("CLASSNAME", classname)
-            for var in vars:
-                write_class += "        self.%s = {\"type\": \"%s\", \"value\": \"\"}\n" % (var[0], var[1])
-                datatypes[var[1]] = ""
-
             extends = re.findall(r"extends (\S+)", read)
+            write_class = file_example.replace("IDMESSAGE", id).replace("CLASSNAME", classname).replace('HERITAGE', extends[0])
+            for var in vars:
+                write_class += """        self.vars.append({\"name\": \"%s\", \"type\": \"%s\", \"value\": \"\"})\n""" % (var[0], var[1])
+                datatypes[var[1]] = ""
             implements = re.findall(r"implements (.*)\n", read)[0].split(', ')
-            if len(implements) > 1:
-
-                print(name)
-                print(implements)
-            # wc = open("./module/protocol/network/messages/%s.py" % classname, 'w')
-            # wc.write(write_class)
-            # wc.close
+            wc = open("./module/protocol/network/messages/%s.py" % classname, 'w')
+            wc.write(write_class)
+            wc.close
 # dicto = dict(OrderedDict(sorted(dicto.items(), key=lambda t: t[0])))
 # print(dicto)
 # for key, val in enumerate(dicto.items()):
 #     print("%d: %s.%s, " % (val[0], val[1], val[1]))
 #
 #print(str(sorted(listt))[1:-1])
+print(datatypes.keys())

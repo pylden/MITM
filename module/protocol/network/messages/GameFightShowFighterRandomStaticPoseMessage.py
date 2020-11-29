@@ -1,7 +1,7 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.GameFightShowFighterMessage import GameFightShowFighterMessage
 
 
-class GameFightShowFighterRandomStaticPoseMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameFightShowFighterRandomStaticPoseMessage(GameFightShowFighterMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        GameFightShowFighterMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2765

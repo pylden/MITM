@@ -1,8 +1,8 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AbstractPartyMemberInFightMessage import AbstractPartyMemberInFightMessage
 
 
-class PartyMemberInStandardFightMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class PartyMemberInStandardFightMessage(AbstractPartyMemberInFightMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AbstractPartyMemberInFightMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8731
-        self.fightMap = {"type": "MapCoordinatesExtended", "value": ""}
+        self.vars.append({"name": "fightMap", "type": "MapCoordinatesExtended", "value": ""})

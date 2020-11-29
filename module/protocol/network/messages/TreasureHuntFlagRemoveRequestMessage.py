@@ -1,9 +1,9 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class TreasureHuntFlagRemoveRequestMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class TreasureHuntFlagRemoveRequestMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7652
-        self.questType = {"type": "uint", "value": ""}
-        self.index = {"type": "uint", "value": ""}
+        self.vars.append({"name": "questType", "type": "uint", "value": ""})
+        self.vars.append({"name": "index", "type": "uint", "value": ""})

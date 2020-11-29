@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.NetworkMessage import NetworkMessage
 
 
-class JobCrafterDirectoryEntryMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class JobCrafterDirectoryEntryMessage(NetworkMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3973
-        self.playerInfo = {"type": "JobCrafterDirectoryEntryPlayerInfo", "value": ""}
-        self.jobInfoList = {"type": "Vector.<JobCrafterDirectoryEntryJobInfo>", "value": ""}
-        self.playerLook = {"type": "EntityLook", "value": ""}
+        self.vars.append({"name": "playerInfo", "type": "JobCrafterDirectoryEntryPlayerInfo", "value": ""})
+        self.vars.append({"name": "jobInfoList", "type": "Vector.<JobCrafterDirectoryEntryJobInfo>", "value": ""})
+        self.vars.append({"name": "playerLook", "type": "EntityLook", "value": ""})

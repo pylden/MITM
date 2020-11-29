@@ -1,10 +1,10 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.AbstractGameActionFightTargetedAbilityMessage import AbstractGameActionFightTargetedAbilityMessage
 
 
-class GameActionFightSpellCastMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GameActionFightSpellCastMessage(AbstractGameActionFightTargetedAbilityMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        AbstractGameActionFightTargetedAbilityMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3754
-        self.spellId = {"type": "uint", "value": ""}
-        self.spellLevel = {"type": "int", "value": ""}
-        self.portalsIds = {"type": "Vector.<int>", "value": ""}
+        self.vars.append({"name": "spellId", "type": "uint", "value": ""})
+        self.vars.append({"name": "spellLevel", "type": "int", "value": ""})
+        self.vars.append({"name": "portalsIds", "type": "Vector.<int>", "value": ""})

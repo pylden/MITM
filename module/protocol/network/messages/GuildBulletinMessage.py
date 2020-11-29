@@ -1,7 +1,7 @@
-from module.protocol.network.message import Message
+from module.protocol.network.messages.BulletinMessage import BulletinMessage
 
 
-class GuildBulletinMessage(Message):
-    def __init__(self, buffer_reader, len_type, length):
-        Message.__init__(self, buffer_reader, len_type, length)
+class GuildBulletinMessage(BulletinMessage):
+    def __init__(self, buffer_reader, len_type, length, count=None):
+        BulletinMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 552
