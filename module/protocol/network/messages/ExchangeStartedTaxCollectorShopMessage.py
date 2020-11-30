@@ -5,5 +5,5 @@ class ExchangeStartedTaxCollectorShopMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8259
-        self.vars.append({"name": "objects", "type": "Vector.<ObjectItem>", "value": ""})
-        self.vars.append({"name": "kamas", "type": "Number", "value": ""})
+        self.objects = {"type": "Vector.<ObjectItem>", "value": ""}
+        self.kamas = {"type": "Number", "value": ""}

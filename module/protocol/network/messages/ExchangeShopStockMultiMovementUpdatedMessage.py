@@ -5,4 +5,4 @@ class ExchangeShopStockMultiMovementUpdatedMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6920
-        self.vars.append({"name": "objectInfoList", "type": "Vector.<ObjectItemToSell>", "value": ""})
+        self.objectInfoList = {"type": "Vector.<ObjectItemToSell>", "value": ""}

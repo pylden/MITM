@@ -5,4 +5,4 @@ class GameFightPlacementSwapPositionsRequestMessage(GameFightPlacementPositionRe
     def __init__(self, buffer_reader, len_type, length, count=None):
         GameFightPlacementPositionRequestMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9517
-        self.vars.append({"name": "requestedId", "type": "Number", "value": ""})
+        self.requestedId = {"type": "Number", "value": ""}

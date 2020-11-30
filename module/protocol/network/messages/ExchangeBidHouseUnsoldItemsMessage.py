@@ -5,4 +5,4 @@ class ExchangeBidHouseUnsoldItemsMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5367
-        self.vars.append({"name": "items", "type": "Vector.<ObjectItemGenericQuantity>", "value": ""})
+        self.items = {"type": "Vector.<ObjectItemGenericQuantity>", "value": ""}

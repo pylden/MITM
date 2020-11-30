@@ -8,7 +8,7 @@ class D2Protocol(ProtocolProcessor):
 
     def get_messages(self, buffer, from_client=False):
         messages = list()
-        while message := MessageFactory.message(buffer, from_client=from_client):
+        while len(buffer) and (message := MessageFactory.message(buffer, from_client=from_client)):
             messages.append(message)
             buffer = buffer[message.get_message_size():]
         return messages, buffer

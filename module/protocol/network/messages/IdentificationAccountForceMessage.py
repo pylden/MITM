@@ -5,4 +5,4 @@ class IdentificationAccountForceMessage(IdentificationMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         IdentificationMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4388
-        self.vars.append({"name": "forcedAccountLogin", "type": "String", "value": ""})
+        self.forcedAccountLogin = {"type": "String", "value": ""}

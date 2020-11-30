@@ -5,4 +5,4 @@ class GameContextRemoveMultipleElementsWithEventsMessage(GameContextRemoveMultip
     def __init__(self, buffer_reader, len_type, length, count=None):
         GameContextRemoveMultipleElementsMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6586
-        self.vars.append({"name": "elementEventIds", "type": "Vector.<uint>", "value": ""})
+        self.elementEventIds = {"type": "Vector.<uint>", "value": ""}

@@ -5,4 +5,4 @@ class GuildInAllianceFactsMessage(GuildFactsMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         GuildFactsMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3384
-        self.vars.append({"name": "allianceInfos", "type": "BasicNamedAllianceInformations", "value": ""})
+        self.allianceInfos = {"type": "BasicNamedAllianceInformations", "value": ""}

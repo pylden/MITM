@@ -5,4 +5,4 @@ class StatedElementUpdatedMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4169
-        self.vars.append({"name": "statedElement", "type": "StatedElement", "value": ""})
+        self.statedElement = {"type": "StatedElement", "value": ""}

@@ -5,4 +5,4 @@ class HavenBagFurnituresMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 709
-        self.vars.append({"name": "furnituresInfos", "type": "Vector.<HavenBagFurnitureInformation>", "value": ""})
+        self.furnituresInfos = {"type": "Vector.<HavenBagFurnitureInformation>", "value": ""}

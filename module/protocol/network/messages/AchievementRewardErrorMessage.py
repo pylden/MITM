@@ -5,4 +5,4 @@ class AchievementRewardErrorMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5299
-        self.vars.append({"name": "achievementId", "type": "int", "value": ""})
+        self.achievementId = {"type": "int", "value": ""}

@@ -5,4 +5,4 @@ class CharacterSelectionWithRemodelMessage(CharacterSelectionMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         CharacterSelectionMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5795
-        self.vars.append({"name": "remodel", "type": "RemodelingInformation", "value": ""})
+        self.remodel = {"type": "RemodelingInformation", "value": ""}

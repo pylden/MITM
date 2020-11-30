@@ -5,4 +5,4 @@ class LockableStateUpdateAbstractMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4237
-        self.vars.append({"name": "locked", "type": "Boolean", "value": ""})
+        self.locked = {"type": "Boolean", "value": ""}

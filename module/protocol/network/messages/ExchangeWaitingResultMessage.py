@@ -5,4 +5,4 @@ class ExchangeWaitingResultMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5686
-        self.vars.append({"name": "bwait", "type": "Boolean", "value": ""})
+        self.bwait = {"type": "Boolean", "value": ""}

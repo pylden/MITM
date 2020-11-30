@@ -5,4 +5,4 @@ class ExchangeCraftResultMagicWithObjectDescMessage(ExchangeCraftResultWithObjec
     def __init__(self, buffer_reader, len_type, length, count=None):
         ExchangeCraftResultWithObjectDescMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 819
-        self.vars.append({"name": "magicPoolStatus", "type": "int", "value": ""})
+        self.magicPoolStatus = {"type": "int", "value": ""}

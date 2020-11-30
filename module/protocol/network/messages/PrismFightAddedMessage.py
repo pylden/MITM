@@ -5,4 +5,4 @@ class PrismFightAddedMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9780
-        self.vars.append({"name": "fight", "type": "PrismFightersInformation", "value": ""})
+        self.fight = {"type": "PrismFightersInformation", "value": ""}

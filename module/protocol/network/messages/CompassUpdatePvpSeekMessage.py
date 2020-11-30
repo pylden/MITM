@@ -5,5 +5,5 @@ class CompassUpdatePvpSeekMessage(CompassUpdateMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         CompassUpdateMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6287
-        self.vars.append({"name": "memberId", "type": "Number", "value": ""})
-        self.vars.append({"name": "memberName", "type": "String", "value": ""})
+        self.memberId = {"type": "Number", "value": ""}
+        self.memberName = {"type": "String", "value": ""}

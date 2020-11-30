@@ -5,6 +5,6 @@ class GameFightPlacementPossiblePositionsMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8748
-        self.vars.append({"name": "positionsForChallengers", "type": "Vector.<uint>", "value": ""})
-        self.vars.append({"name": "positionsForDefenders", "type": "Vector.<uint>", "value": ""})
-        self.vars.append({"name": "teamNumber", "type": "uint", "value": ""})
+        self.positionsForChallengers = {"type": "Vector.<uint>", "value": ""}
+        self.positionsForDefenders = {"type": "Vector.<uint>", "value": ""}
+        self.teamNumber = {"type": "uint", "value": ""}

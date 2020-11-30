@@ -5,4 +5,4 @@ class IgnoredListMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8697
-        self.vars.append({"name": "ignoredList", "type": "Vector.<IgnoredInformations>", "value": ""})
+        self.ignoredList = {"type": "Vector.<IgnoredInformations>", "value": ""}

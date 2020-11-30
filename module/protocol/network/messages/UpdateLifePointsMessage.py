@@ -5,5 +5,5 @@ class UpdateLifePointsMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8175
-        self.vars.append({"name": "lifePoints", "type": "uint", "value": ""})
-        self.vars.append({"name": "maxLifePoints", "type": "uint", "value": ""})
+        self.lifePoints = {"type": "uint", "value": ""}
+        self.maxLifePoints = {"type": "uint", "value": ""}

@@ -5,4 +5,4 @@ class ChatClientMultiMessage(ChatAbstractClientMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         ChatAbstractClientMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5022
-        self.vars.append({"name": "channel", "type": "uint", "value": ""})
+        self.channel = {"type": "uint", "value": ""}

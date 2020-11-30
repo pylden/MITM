@@ -5,6 +5,6 @@ class PrismFightAttackerRemoveMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6001
-        self.vars.append({"name": "subAreaId", "type": "uint", "value": ""})
-        self.vars.append({"name": "fightId", "type": "uint", "value": ""})
-        self.vars.append({"name": "fighterToRemoveId", "type": "Number", "value": ""})
+        self.subAreaId = {"type": "uint", "value": ""}
+        self.fightId = {"type": "uint", "value": ""}
+        self.fighterToRemoveId = {"type": "Number", "value": ""}

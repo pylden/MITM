@@ -28,7 +28,7 @@ for name in filelist:
             extends = re.findall(r"extends (\S+)", read)
             write_class = file_example.replace("IDMESSAGE", id).replace("CLASSNAME", classname).replace('HERITAGE', extends[0])
             for var in vars:
-                write_class += """        self.vars.append({\"name\": \"%s\", \"type\": \"%s\", \"value\": \"\"})\n""" % (var[0], var[1])
+                write_class += """        self.%s = {\"type\": \"%s\", \"value\": \"\"}\n""" % (var[0], var[1])
                 datatypes[var[1]] = ""
             implements = re.findall(r"implements (.*)\n", read)[0].split(', ')
             wc = open("./module/protocol/network/messages/%s.py" % classname, 'w')

@@ -5,4 +5,4 @@ class FriendSetStatusShareMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4184
-        self.vars.append({"name": "share", "type": "Boolean", "value": ""})
+        self.share = {"type": "Boolean", "value": ""}

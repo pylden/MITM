@@ -5,5 +5,5 @@ class GameRolePlayArenaUpdatePlayerInfosAllQueuesMessage(GameRolePlayArenaUpdate
     def __init__(self, buffer_reader, len_type, length, count=None):
         GameRolePlayArenaUpdatePlayerInfosMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5122
-        self.vars.append({"name": "team", "type": "ArenaRankInfos", "value": ""})
-        self.vars.append({"name": "duel", "type": "ArenaRankInfos", "value": ""})
+        self.team = {"type": "ArenaRankInfos", "value": ""}
+        self.duel = {"type": "ArenaRankInfos", "value": ""}

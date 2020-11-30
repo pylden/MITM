@@ -5,6 +5,6 @@ class TreasureHuntFlagRequestAnswerMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8358
-        self.vars.append({"name": "questType", "type": "uint", "value": ""})
-        self.vars.append({"name": "result", "type": "uint", "value": ""})
-        self.vars.append({"name": "index", "type": "uint", "value": ""})
+        self.questType = {"type": "uint", "value": ""}
+        self.result = {"type": "uint", "value": ""}
+        self.index = {"type": "uint", "value": ""}

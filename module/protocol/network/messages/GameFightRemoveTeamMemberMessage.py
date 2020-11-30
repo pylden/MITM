@@ -5,6 +5,6 @@ class GameFightRemoveTeamMemberMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6353
-        self.vars.append({"name": "fightId", "type": "uint", "value": ""})
-        self.vars.append({"name": "teamId", "type": "uint", "value": ""})
-        self.vars.append({"name": "charId", "type": "Number", "value": ""})
+        self.fightId = {"type": "uint", "value": ""}
+        self.teamId = {"type": "uint", "value": ""}
+        self.charId = {"type": "Number", "value": ""}

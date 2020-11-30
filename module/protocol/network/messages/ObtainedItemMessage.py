@@ -5,5 +5,5 @@ class ObtainedItemMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6853
-        self.vars.append({"name": "genericId", "type": "uint", "value": ""})
-        self.vars.append({"name": "baseQuantity", "type": "uint", "value": ""})
+        self.genericId = {"type": "uint", "value": ""}
+        self.baseQuantity = {"type": "uint", "value": ""}

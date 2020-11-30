@@ -5,6 +5,6 @@ class GameMapMovementMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8712
-        self.vars.append({"name": "keyMovements", "type": "Vector.<uint>", "value": ""})
-        self.vars.append({"name": "forcedDirection", "type": "int", "value": ""})
-        self.vars.append({"name": "actorId", "type": "Number", "value": ""})
+        self.keyMovements = {"type": "Vector.<uint>", "value": ""}
+        self.forcedDirection = {"type": "int", "value": ""}
+        self.actorId = {"type": "Number", "value": ""}

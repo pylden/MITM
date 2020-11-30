@@ -5,4 +5,4 @@ class GameRolePlayShowMultipleActorsMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4416
-        self.vars.append({"name": "informationsList", "type": "Vector.<GameRolePlayActorInformations>", "value": ""})
+        self.informationsList = {"type": "Vector.<GameRolePlayActorInformations>", "value": ""}

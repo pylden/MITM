@@ -5,4 +5,4 @@ class AllianceTaxCollectorDialogQuestionExtendedMessage(TaxCollectorDialogQuesti
     def __init__(self, buffer_reader, len_type, length, count=None):
         TaxCollectorDialogQuestionExtendedMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 164
-        self.vars.append({"name": "alliance", "type": "BasicNamedAllianceInformations", "value": ""})
+        self.alliance = {"type": "BasicNamedAllianceInformations", "value": ""}

@@ -5,4 +5,4 @@ class BasicStatWithDataMessage(BasicStatMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         BasicStatMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5159
-        self.vars.append({"name": "datas", "type": "Vector.<StatisticData>", "value": ""})
+        self.datas = {"type": "Vector.<StatisticData>", "value": ""}

@@ -5,4 +5,4 @@ class CharactersListMessage(BasicCharactersListMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         BasicCharactersListMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9869
-        self.vars.append({"name": "hasStartupActions", "type": "Boolean", "value": ""})
+        self.hasStartupActions = {"type": "Boolean", "value": ""}

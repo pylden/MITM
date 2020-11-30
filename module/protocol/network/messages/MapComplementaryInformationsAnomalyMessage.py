@@ -5,5 +5,5 @@ class MapComplementaryInformationsAnomalyMessage(MapComplementaryInformationsDat
     def __init__(self, buffer_reader, len_type, length, count=None):
         MapComplementaryInformationsDataMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6320
-        self.vars.append({"name": "level", "type": "uint", "value": ""})
-        self.vars.append({"name": "closingTime", "type": "Number", "value": ""})
+        self.level = {"type": "uint", "value": ""}
+        self.closingTime = {"type": "Number", "value": ""}

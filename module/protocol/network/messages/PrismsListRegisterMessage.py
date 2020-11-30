@@ -5,4 +5,4 @@ class PrismsListRegisterMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9690
-        self.vars.append({"name": "listen", "type": "uint", "value": ""})
+        self.listen = {"type": "uint", "value": ""}

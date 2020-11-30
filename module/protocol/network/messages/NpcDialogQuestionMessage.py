@@ -5,6 +5,6 @@ class NpcDialogQuestionMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5895
-        self.vars.append({"name": "messageId", "type": "uint", "value": ""})
-        self.vars.append({"name": "dialogParams", "type": "Vector.<String>", "value": ""})
-        self.vars.append({"name": "visibleReplies", "type": "Vector.<uint>", "value": ""})
+        self.messageId = {"type": "uint", "value": ""}
+        self.dialogParams = {"type": "Vector.<String>", "value": ""}
+        self.visibleReplies = {"type": "Vector.<uint>", "value": ""}

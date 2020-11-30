@@ -5,4 +5,4 @@ class PartyLeaderUpdateMessage(AbstractPartyEventMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         AbstractPartyEventMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2432
-        self.vars.append({"name": "partyLeaderId", "type": "Number", "value": ""})
+        self.partyLeaderId = {"type": "Number", "value": ""}

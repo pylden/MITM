@@ -5,4 +5,4 @@ class ShowCellSpectatorMessage(ShowCellMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         ShowCellMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6554
-        self.vars.append({"name": "playerName", "type": "String", "value": ""})
+        self.playerName = {"type": "String", "value": ""}

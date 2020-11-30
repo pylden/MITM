@@ -5,4 +5,4 @@ class OnConnectionEventMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2093
-        self.vars.append({"name": "eventType", "type": "uint", "value": ""})
+        self.eventType = {"type": "uint", "value": ""}

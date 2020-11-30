@@ -5,4 +5,4 @@ class FriendsListMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3107
-        self.vars.append({"name": "friendsList", "type": "Vector.<FriendInformations>", "value": ""})
+        self.friendsList = {"type": "Vector.<FriendInformations>", "value": ""}

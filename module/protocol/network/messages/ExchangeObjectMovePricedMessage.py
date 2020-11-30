@@ -5,4 +5,4 @@ class ExchangeObjectMovePricedMessage(ExchangeObjectMoveMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         ExchangeObjectMoveMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 763
-        self.vars.append({"name": "price", "type": "Number", "value": ""})
+        self.price = {"type": "Number", "value": ""}

@@ -5,4 +5,4 @@ class ExchangeCraftResultWithObjectIdMessage(ExchangeCraftResultMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         ExchangeCraftResultMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9309
-        self.vars.append({"name": "objectGenericId", "type": "uint", "value": ""})
+        self.objectGenericId = {"type": "uint", "value": ""}

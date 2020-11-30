@@ -5,4 +5,4 @@ class MapComplementaryInformationsDataInHouseMessage(MapComplementaryInformation
     def __init__(self, buffer_reader, len_type, length, count=None):
         MapComplementaryInformationsDataMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4292
-        self.vars.append({"name": "currentHouse", "type": "HouseInformationsInside", "value": ""})
+        self.currentHouse = {"type": "HouseInformationsInside", "value": ""}

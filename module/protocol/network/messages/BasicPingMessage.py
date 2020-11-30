@@ -5,4 +5,7 @@ class BasicPingMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9489
-        self.vars.append({"name": "quiet", "type": "Boolean", "value": ""})
+        self.quiet = {"type": "Boolean", "value": ""}
+
+    def deserialize(self):
+        self.quiet["value"] = self.buffer_reader.read_boolean()

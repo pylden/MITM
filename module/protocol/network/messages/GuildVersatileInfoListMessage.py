@@ -5,4 +5,4 @@ class GuildVersatileInfoListMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9944
-        self.vars.append({"name": "guilds", "type": "Vector.<GuildVersatileInformations>", "value": ""})
+        self.guilds = {"type": "Vector.<GuildVersatileInformations>", "value": ""}

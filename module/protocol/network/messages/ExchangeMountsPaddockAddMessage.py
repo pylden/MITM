@@ -5,4 +5,4 @@ class ExchangeMountsPaddockAddMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8112
-        self.vars.append({"name": "mountDescription", "type": "Vector.<MountClientData>", "value": ""})
+        self.mountDescription = {"type": "Vector.<MountClientData>", "value": ""}

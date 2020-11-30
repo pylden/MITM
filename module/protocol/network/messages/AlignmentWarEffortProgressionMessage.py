@@ -5,4 +5,4 @@ class AlignmentWarEffortProgressionMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5772
-        self.vars.append({"name": "effortProgressions", "type": "Vector.<AlignmentWarEffortInformation>", "value": ""})
+        self.effortProgressions = {"type": "Vector.<AlignmentWarEffortInformation>", "value": ""}

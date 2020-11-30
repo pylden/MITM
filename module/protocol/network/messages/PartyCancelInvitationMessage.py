@@ -5,4 +5,4 @@ class PartyCancelInvitationMessage(AbstractPartyMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         AbstractPartyMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7409
-        self.vars.append({"name": "guestId", "type": "Number", "value": ""})
+        self.guestId = {"type": "Number", "value": ""}

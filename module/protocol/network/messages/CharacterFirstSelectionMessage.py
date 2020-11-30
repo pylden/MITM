@@ -5,4 +5,4 @@ class CharacterFirstSelectionMessage(CharacterSelectionMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         CharacterSelectionMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 1228
-        self.vars.append({"name": "doTutorial", "type": "Boolean", "value": ""})
+        self.doTutorial = {"type": "Boolean", "value": ""}

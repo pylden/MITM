@@ -5,4 +5,4 @@ class CurrentMapInstanceMessage(CurrentMapMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         CurrentMapMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4034
-        self.vars.append({"name": "instantiatedMapId", "type": "Number", "value": ""})
+        self.instantiatedMapId = {"type": "Number", "value": ""}

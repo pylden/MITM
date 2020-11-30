@@ -5,4 +5,4 @@ class EmotePlayMassiveMessage(EmotePlayAbstractMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         EmotePlayAbstractMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9926
-        self.vars.append({"name": "actorIds", "type": "Vector.<Number>", "value": ""})
+        self.actorIds = {"type": "Vector.<Number>", "value": ""}

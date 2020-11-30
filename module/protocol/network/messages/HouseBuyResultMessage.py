@@ -5,8 +5,8 @@ class HouseBuyResultMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6050
-        self.vars.append({"name": "houseId", "type": "uint", "value": ""})
-        self.vars.append({"name": "instanceId", "type": "uint", "value": ""})
-        self.vars.append({"name": "secondHand", "type": "Boolean", "value": ""})
-        self.vars.append({"name": "bought", "type": "Boolean", "value": ""})
-        self.vars.append({"name": "realPrice", "type": "Number", "value": ""})
+        self.houseId = {"type": "uint", "value": ""}
+        self.instanceId = {"type": "uint", "value": ""}
+        self.secondHand = {"type": "Boolean", "value": ""}
+        self.bought = {"type": "Boolean", "value": ""}
+        self.realPrice = {"type": "Number", "value": ""}

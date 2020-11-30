@@ -5,4 +5,4 @@ class PrismsInfoValidMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5377
-        self.vars.append({"name": "fights", "type": "Vector.<PrismFightersInformation>", "value": ""})
+        self.fights = {"type": "Vector.<PrismFightersInformation>", "value": ""}

@@ -5,4 +5,4 @@ class ExchangeStartOkCraftWithInformationMessage(ExchangeStartOkCraftMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         ExchangeStartOkCraftMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 7187
-        self.vars.append({"name": "skillId", "type": "uint", "value": ""})
+        self.skillId = {"type": "uint", "value": ""}

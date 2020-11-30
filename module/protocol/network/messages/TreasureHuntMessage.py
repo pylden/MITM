@@ -5,11 +5,11 @@ class TreasureHuntMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4631
-        self.vars.append({"name": "questType", "type": "uint", "value": ""})
-        self.vars.append({"name": "startMapId", "type": "Number", "value": ""})
-        self.vars.append({"name": "knownStepsList", "type": "Vector.<TreasureHuntStep>", "value": ""})
-        self.vars.append({"name": "totalStepCount", "type": "uint", "value": ""})
-        self.vars.append({"name": "checkPointCurrent", "type": "uint", "value": ""})
-        self.vars.append({"name": "checkPointTotal", "type": "uint", "value": ""})
-        self.vars.append({"name": "availableRetryCount", "type": "int", "value": ""})
-        self.vars.append({"name": "flags", "type": "Vector.<TreasureHuntFlag>", "value": ""})
+        self.questType = {"type": "uint", "value": ""}
+        self.startMapId = {"type": "Number", "value": ""}
+        self.knownStepsList = {"type": "Vector.<TreasureHuntStep>", "value": ""}
+        self.totalStepCount = {"type": "uint", "value": ""}
+        self.checkPointCurrent = {"type": "uint", "value": ""}
+        self.checkPointTotal = {"type": "uint", "value": ""}
+        self.availableRetryCount = {"type": "int", "value": ""}
+        self.flags = {"type": "Vector.<TreasureHuntFlag>", "value": ""}

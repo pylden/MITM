@@ -5,4 +5,4 @@ class BasicWhoIsNoMatchMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5493
-        self.vars.append({"name": "search", "type": "String", "value": ""})
+        self.search = {"type": "String", "value": ""}

@@ -5,7 +5,7 @@ class ContactLookMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6821
-        self.vars.append({"name": "requestId", "type": "uint", "value": ""})
-        self.vars.append({"name": "playerName", "type": "String", "value": ""})
-        self.vars.append({"name": "playerId", "type": "Number", "value": ""})
-        self.vars.append({"name": "look", "type": "EntityLook", "value": ""})
+        self.requestId = {"type": "uint", "value": ""}
+        self.playerName = {"type": "String", "value": ""}
+        self.playerId = {"type": "Number", "value": ""}
+        self.look = {"type": "EntityLook", "value": ""}

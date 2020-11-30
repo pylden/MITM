@@ -5,4 +5,4 @@ class AchievementListMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 3550
-        self.vars.append({"name": "finishedAchievements", "type": "Vector.<AchievementAchieved>", "value": ""})
+        self.finishedAchievements = {"type": "Vector.<AchievementAchieved>", "value": ""}

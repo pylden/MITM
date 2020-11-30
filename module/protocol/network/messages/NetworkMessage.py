@@ -3,7 +3,6 @@ class NetworkMessage:
         self.buffer_reader = buffer_reader
         self.len_type = len_type
         self.length = length
-        self.vars = []
         self.count = count
 
     def populate(self):
@@ -15,10 +14,16 @@ class NetworkMessage:
                 print("Don't know how to read %s" % var["type"])
 
     def get_message_size(self):
-        return 2 + self.len_type + self.length
+        return 2 + self.len_type + self.length + (0 if self.count is None else 4)
 
     def __repr__(self):
-        return "{0} : {1} => {2}\n{3}".format(self.id, type(self).__name__, self.length, self.vars)
+        return "{0} : {1} => {2}\n{3}".format(
+            self.id,
+            type(self).__name__,
+            self.length,
+            [{key: self.__dict__[key]} for x, key in enumerate(self.__dict__) if
+             key not in ['buffer_reader', 'len_type', 'length', 'count', 'id']]
+       )
 
     def deserialize(self):
         print("Not implemented yet for {0} => {1}".format(self.id, type(self).__name__))

@@ -5,4 +5,4 @@ class PartyLocateMembersMessage(AbstractPartyMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         AbstractPartyMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2685
-        self.vars.append({"name": "geopositions", "type": "Vector.<PartyMemberGeoPosition>", "value": ""})
+        self.geopositions = {"type": "Vector.<PartyMemberGeoPosition>", "value": ""}

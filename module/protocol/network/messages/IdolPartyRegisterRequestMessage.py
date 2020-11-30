@@ -5,4 +5,4 @@ class IdolPartyRegisterRequestMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5600
-        self.vars.append({"name": "register", "type": "Boolean", "value": ""})
+        self.register = {"type": "Boolean", "value": ""}

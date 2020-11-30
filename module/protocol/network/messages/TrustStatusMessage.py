@@ -5,5 +5,5 @@ class TrustStatusMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 2030
-        self.vars.append({"name": "trusted", "type": "Boolean", "value": ""})
-        self.vars.append({"name": "certified", "type": "Boolean", "value": ""})
+        self.trusted = {"type": "Boolean", "value": ""}
+        self.certified = {"type": "Boolean", "value": ""}

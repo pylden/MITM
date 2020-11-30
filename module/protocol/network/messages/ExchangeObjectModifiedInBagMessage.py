@@ -5,4 +5,4 @@ class ExchangeObjectModifiedInBagMessage(ExchangeObjectMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         ExchangeObjectMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6601
-        self.vars.append({"name": "object", "type": "ObjectItem", "value": ""})
+        self.object = {"type": "ObjectItem", "value": ""}

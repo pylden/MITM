@@ -5,4 +5,4 @@ class ChatClientPrivateMessage(ChatAbstractClientMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         ChatAbstractClientMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9769
-        self.vars.append({"name": "receiver", "type": "String", "value": ""})
+        self.receiver = {"type": "String", "value": ""}

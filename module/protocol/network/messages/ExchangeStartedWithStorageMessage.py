@@ -5,4 +5,4 @@ class ExchangeStartedWithStorageMessage(ExchangeStartedMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         ExchangeStartedMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 8605
-        self.vars.append({"name": "storageMaxSlot", "type": "uint", "value": ""})
+        self.storageMaxSlot = {"type": "uint", "value": ""}

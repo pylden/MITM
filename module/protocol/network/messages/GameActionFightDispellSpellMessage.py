@@ -5,4 +5,4 @@ class GameActionFightDispellSpellMessage(GameActionFightDispellMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         GameActionFightDispellMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4229
-        self.vars.append({"name": "spellId", "type": "uint", "value": ""})
+        self.spellId = {"type": "uint", "value": ""}

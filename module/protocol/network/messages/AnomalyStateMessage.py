@@ -5,6 +5,6 @@ class AnomalyStateMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 4556
-        self.vars.append({"name": "subAreaId", "type": "uint", "value": ""})
-        self.vars.append({"name": "open", "type": "Boolean", "value": ""})
-        self.vars.append({"name": "closingTime", "type": "Number", "value": ""})
+        self.subAreaId = {"type": "uint", "value": ""}
+        self.open = {"type": "Boolean", "value": ""}
+        self.closingTime = {"type": "Number", "value": ""}

@@ -5,4 +5,4 @@ class GameRolePlayArenaRegisterMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 9972
-        self.vars.append({"name": "battleMode", "type": "uint", "value": ""})
+        self.battleMode = {"type": "uint", "value": ""}

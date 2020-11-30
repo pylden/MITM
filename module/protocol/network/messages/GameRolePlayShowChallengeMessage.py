@@ -5,4 +5,4 @@ class GameRolePlayShowChallengeMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 5095
-        self.vars.append({"name": "commonsInfos", "type": "FightCommonInformations", "value": ""})
+        self.commonsInfos = {"type": "FightCommonInformations", "value": ""}
