@@ -53,16 +53,19 @@ class BytesReader(BytesIO):
         return self.unpack(str(length) + 's', length).decode("utf")
 
     def read_var_int(self):
-        value = offset = size = 0
+        b = value = offset = 0
+        has_next = False
+        i = 0
         while offset < INT_SIZE:
+            i += 1
             b = self.read_byte()
-            size += 1
+            has_next = (int.from_bytes(b, 'big') & MASK_10000000) == MASK_10000000
             if offset > 0:
-                value += (int.from_bytes(b, 'big') & MASK_01111111) << offset
+                value = value + ((int.from_bytes(b, 'big') & MASK_01111111) << offset)
             else:
-                value += int.from_bytes(b, 'big') & MASK_01111111
+                value = value + (int.from_bytes(b, 'big') & MASK_01111111)
             offset += CHUNCK_BIT_SIZE
-            if not (int.from_bytes(b, 'big') & MASK_10000000) == MASK_10000000:
+            if not has_next:
                 return value
 
     def read_var_short(self):
