@@ -14,11 +14,11 @@ class Client(asyncio.Protocol):
 
     def data_received(self, data):  # Data received from distant server
         self.protocol_processor.from_server(data)
-        self._server.transport.write(data)  # From distant server server to local server
+        self._server.transport.write(data)  # From distant server server to local server to client
 
     def from_client(self, data):  # Data received from local server
         self.protocol_processor.from_client(data)
-        self.write(data)  # From local server to distant server
+        self.write(data)  # From client to local server to distant server
 
     def write(self, buffer):
         self.transport.write(buffer)

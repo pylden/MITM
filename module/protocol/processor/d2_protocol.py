@@ -27,4 +27,3 @@ class D2Protocol(ProtocolProcessor):
 
     def send_server(self, message):
         self._client.write(message)
-
