@@ -7,13 +7,15 @@ from module.io.constant import *
 class BytesReader(BytesIO):
     def __init__(self, buffer):
         super().__init__(buffer)
-        self._current_buffer = buffer
 
     def get_current_buffer(self):
         return self.getbuffer()[self.tell():]
 
     def read_byte(self):
         return self.read(1)
+
+    def read_ubyte(self):
+        return self.read_byte()
 
     def read_char(self):
         return self.unpack('b')
@@ -36,12 +38,6 @@ class BytesReader(BytesIO):
     def read_uint(self):
         return self.unpack('!I', 4)
 
-    def read_int64(self):
-        return self.unpack('!q', 8)
-
-    def read_uint64(self):
-        return self.unpack('!Q', 8)
-
     def read_float(self):
         return self.unpack('!f', 4)
 
@@ -53,32 +49,30 @@ class BytesReader(BytesIO):
         return self.unpack(str(length) + 's', length).decode("utf")
 
     def read_var_int(self):
-        value = offset = size = 0
-        while offset < INT_SIZE:
-            b = self.read_byte()
-            size += 1
-            if offset > 0:
-                value += (int.from_bytes(b, 'big') & MASK_01111111) << offset
-            else:
-                value += int.from_bytes(b, 'big') & MASK_01111111
-            offset += CHUNCK_BIT_SIZE
-            if not (int.from_bytes(b, 'big') & MASK_10000000) == MASK_10000000:
-                return value
+        val = 0
+        for offset in range(0, INT_SIZE, CHUNCK_BIT_SIZE):
+            b = self.read_uchar()
+            val += (b & MASK_01111111) << offset
+            if not b & MASK_10000000:
+                return val
 
     def read_var_short(self):
-        value = offset = 0
-        while offset < SHORT_SIZE:
-            b = self.buffer_reader.read_byte()
-            has_next = (int.from_bytes(b, 'big') & MASK_10000000) == MASK_10000000;
-            if offset > 0:
-                value = value + ((int.from_bytes(b, 'big') & MASK_01111111) << offset)
-            else:
-                value = value + (int.from_bytes(b, 'big') & MASK_01111111)
-            offset += CHUNCK_BIT_SIZE
-            if not has_next:
-                if value > SHORT_MAX_VALUE:
-                    value = value - UNSIGNED_SHORT_MAX_VALUE
-                return value
+        val = 0
+        for offset in range(0, SHORT_SIZE, CHUNCK_BIT_SIZE):
+            b = self.read_uchar()
+            val += (b & MASK_01111111) << offset
+            if not (b & MASK_10000000) == MASK_10000000:
+                if val > SHORT_MAX_VALUE:
+                    val -= UNSIGNED_SHORT_MAX_VALUE
+                return val
+
+    def read_var_long(self):
+        val = 0
+        for offset in range(0, LONG_SIZE, CHUNCK_BIT_SIZE):
+            b = self.read_uchar()
+            val += (b & MASK_01111111) << offset
+            if not b & MASK_10000000:
+                return val
 
     def read_read_var_uh_short(self):
         return self.read_var_short()

@@ -21,3 +21,12 @@ class Version:
             "build": self.build,
             "buildType": self.buildType
         }
+
+    def __repr__(self):
+        return "Major: {0}, Minor: {1}, Code: {2}, Build: {3}, buildType: {4}".format(
+            self.major,
+            self.minor,
+            self.code,
+            self.build,
+            self.buildType
+        )
