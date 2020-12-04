@@ -14,13 +14,6 @@ class Version:
         self.code = int.from_bytes(buffer.read_byte(), "big")
         self.build = buffer.read_int()
         self.buildType = int.from_bytes(buffer.read_byte(), "big")
-        return {
-            "major": self.major,
-            "minor": self.minor,
-            "code": self.code,
-            "build": self.build,
-            "buildType": self.buildType
-        }
 
     def __repr__(self):
         return "Major: {0}, Minor: {1}, Code: {2}, Build: {3}, buildType: {4}".format(

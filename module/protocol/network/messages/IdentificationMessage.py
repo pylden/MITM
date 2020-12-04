@@ -18,7 +18,7 @@ class IdentificationMessage(NetworkMessage):
         self.failedAttempts = {"type": "Vector.<uint>", "value": []}
 
     def deserialize(self):
-        box = int.from_bytes(self.buffer_reader.read_byte(), "big")
+        box = self.buffer_reader.read_uchar()
         self.autoconnect["value"] = BooleanByteWrapper.get_flag(box, 0)
         self.useCertificate["value"] = BooleanByteWrapper.get_flag(box, 1)
         self.useLoginToken["value"] = BooleanByteWrapper.get_flag(box, 2)
@@ -29,7 +29,7 @@ class IdentificationMessage(NetworkMessage):
         for i in range(credentials_length):
             self.credentials["value"].append(int.from_bytes(self.buffer_reader.read_byte(), "big"))
         self.serverId = self.buffer_reader.read_short()
-        self.sessionOptionalSalt = self.buffer_reader.read_int64()
+        self.sessionOptionalSalt = self.buffer_reader.read_var_long()
         failed_attempts_length = self.buffer_reader.read_ushort()
         for i in range(failed_attempts_length):
             self.failedAttempts["value"].append(self.buffer_reader.read_read_var_uh_short())
