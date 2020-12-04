@@ -4,9 +4,6 @@ from module.protocol.processor.d2_protocol import D2Protocol
 from module.pluger.FrameClientPluger import FrameClientPluger
 from module.ui.app import App
 import queue
-from module.protocol.network.messages.IdentificationMessage import IdentificationMessage
-from module.io.bytes_reader import BytesReader
-from module.protocol.network.message_factory import MessageFactory
 
 EXE_PATH = "C:/Users/Pierre/AppData/Local/Ankama/zaap/dofus/Dofus.exe"
 EXE_NAME = "Dofus.exe"
