@@ -7,6 +7,17 @@ class SelectedServerDataMessage(NetworkMessage):
         self.id = 6182
         self.serverId = {"type": "uint", "value": ""}
         self.address = {"type": "String", "value": ""}
-        self.ports = {"type": "Vector.<uint>", "value": ""}
+        self.ports = {"type": "Vector.<uint>", "value": []}
         self.canCreateNewCharacter = {"type": "Boolean", "value": ""}
-        self.ticket = {"type": "Vector.<int>", "value": ""}
+        self.ticket = {"type": "Vector.<int>", "value": []}
+
+    def deserialize(self):
+        self.serverId["value"] = self.buffer_reader.read_var_short()
+        self.address["value"] = self.buffer_reader.read_utf()
+        ports_length = self.buffer_reader.read_ushort()
+        for i in range(0, ports_length):
+            self.ports["value"].append(self.buffer_reader.read_var_short())
+        self.canCreateNewCharacter["value"] = self.buffer_reader.read_boolean()
+        ticket_length = self.buffer_reader.read_var_int()
+        for i in range(0, ticket_length):
+            self.ticket["value"].append(self.buffer_reader.read_char())

@@ -15,8 +15,11 @@ class Injector:
 
         session = frida.attach(pid)
         script = session.create_script(js)
-        if on_message is not None:
-            script.on('network', on_message)
+
+        def on_mess(message, data):
+            print(message)
+
+        script.on('message', on_mess)
         script.load()
         print("Process {0} patched.".format(pid))
 

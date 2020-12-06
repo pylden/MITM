@@ -1,10 +1,12 @@
 from module.protocol.processor.protocol_processor import ProtocolProcessor
 from module.protocol.network.message_factory import MessageFactory
+from module.bot.bot import Bot
 
 
 class D2Protocol(ProtocolProcessor):
     def __init__(self, client):
         ProtocolProcessor.__init__(self, client)
+        self.bot = Bot()
 
     def get_messages(self, buffer, from_client=False):
         messages = list()
@@ -15,15 +17,15 @@ class D2Protocol(ProtocolProcessor):
 
     def from_client(self, data):
         messages, self._client_buffer = self.get_messages(self._client_buffer + data, from_client=True)
-        if len(messages):
-            for message in messages:
-                print(message)
+        bot_data = self.bot.read_client_messages(messages)
+        print("From client : %s" % data.hex())
+        return data
 
     def from_server(self, data):
         messages, self._server_buffer = self.get_messages(self._server_buffer + data)
-        if len(messages):
-            for message in messages:
-                print(message)
+        bot_data = self.bot.read_server_messages(messages)
+        print("From server : %s" % data.hex())
+        return data
 
     def send_server(self, message):
         self._client.write(message)

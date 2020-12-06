@@ -26,7 +26,7 @@ Interceptor.attach(Module.getExportByName('ws2_32', 'connect'), {
                 0x7F, 0x00, 0x00, 0x01,
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
             ]);
-            send(ip)
         }
+        send(ip)
     }
 });
