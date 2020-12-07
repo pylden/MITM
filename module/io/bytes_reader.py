@@ -5,7 +5,7 @@ from module.io.constant import *
 
 
 class BytesReader(BytesIO):
-    def __init__(self, buffer):
+    def __init__(self, buffer = b''):
         super().__init__(buffer)
 
     def get_current_buffer(self):
@@ -18,10 +18,10 @@ class BytesReader(BytesIO):
         return self.read_byte()
 
     def read_char(self):
-        return self.unpack('b')
+        return self.unpack('!b')
 
     def read_uchar(self):
-        return self.unpack('B')
+        return self.unpack('!B')
 
     def read_boolean(self):
         return self.unpack('!?')
@@ -79,3 +79,6 @@ class BytesReader(BytesIO):
 
     def unpack(self, fmt, length=1):
         return unpack(fmt, self.read(length))[0]
+
+    def pack(self, fmt, data):
+        return self.write(pack(fmt, data))

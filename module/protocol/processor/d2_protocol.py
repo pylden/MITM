@@ -17,13 +17,13 @@ class D2Protocol(ProtocolProcessor):
 
     def from_client(self, data):
         messages, self._client_buffer = self.get_messages(self._client_buffer + data, from_client=True)
-        bot_data = self.bot.read_client_messages(messages)
+        bot_data = self.bot.read_messages(messages)
         print("From client : %s" % data.hex())
         return data
 
     def from_server(self, data):
         messages, self._server_buffer = self.get_messages(self._server_buffer + data)
-        bot_data = self.bot.read_server_messages(messages)
+        bot_data = self.bot.read_messages(messages)
         print("From server : %s" % data.hex())
         return data
 
