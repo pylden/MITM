@@ -15,7 +15,7 @@ class GameServerInformations:
         self.date = 0
 
     def deserialize(self, buffer):
-        box = buffer.read_char()
+        box = int.from_bytes(buffer.read_char(), 'big')
         self.is_mono_account = BooleanByteWrapper.get_flag(box, 0)
         self.is_selectable = BooleanByteWrapper.get_flag(box, 1)
         self.id = buffer.read_read_var_uh_short()

@@ -2,7 +2,7 @@ class BooleanByteWrapper:
     def get_flag(a, pos):
         if pos == 0:
             return (a & 1) != 0;
-        if pos ==1:
+        if pos == 1:
             return (a & 2) != 0;
         if pos == 2:
             return (a & 4) != 0;

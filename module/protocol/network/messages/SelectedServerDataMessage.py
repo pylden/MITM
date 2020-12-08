@@ -1,4 +1,5 @@
 from module.protocol.network.messages.NetworkMessage import NetworkMessage
+from module.io.bytes_reader import BytesReader
 
 
 class SelectedServerDataMessage(NetworkMessage):
@@ -20,4 +21,18 @@ class SelectedServerDataMessage(NetworkMessage):
         self.canCreateNewCharacter["value"] = self.buffer_reader.read_boolean()
         ticket_length = self.buffer_reader.read_var_int()
         for i in range(0, ticket_length):
-            self.ticket["value"].append(self.buffer_reader.read_char())
+            self.ticket["value"].append(self.buffer_reader.read_byte())
+
+    def serialize(self):
+        print(self)
+        self.buffer_reader = BytesReader()
+        self.buffer_reader.write_var_short(self.serverId["value"])
+        print(self.address["value"])
+        self.buffer_reader.write_utf(self.address["value"])
+        self.buffer_reader.write_ushort(len(self.ports["value"]))
+        for port in self.ports["value"]:
+            self.buffer_reader.write_var_short(port)
+        self.buffer_reader.write_bool(self.canCreateNewCharacter["value"])
+        self.buffer_reader.write_var_int(len(self.ticket["value"]))
+        for t in self.ticket["value"]:
+            self.buffer_reader.write_byte(t)

@@ -6,7 +6,7 @@ from module.bot.bot import Bot
 class D2Protocol(ProtocolProcessor):
     def __init__(self, client):
         ProtocolProcessor.__init__(self, client)
-        self.bot = Bot()
+        self.bot = Bot(client)
 
     def get_messages(self, buffer, from_client=False):
         messages = list()
@@ -19,13 +19,14 @@ class D2Protocol(ProtocolProcessor):
         messages, self._client_buffer = self.get_messages(self._client_buffer + data, from_client=True)
         bot_data = self.bot.read_messages(messages)
         print("From client : %s" % data.hex())
-        return data
+        if bot_data:
+            print("From server after : %s" % bot_data.hex())
+        return bot_data
 
     def from_server(self, data):
         messages, self._server_buffer = self.get_messages(self._server_buffer + data)
         bot_data = self.bot.read_messages(messages)
         print("From server : %s" % data.hex())
-        return data
-
-    def send_server(self, message):
-        self._client.write(message)
+        if bot_data:
+            print("From server after : %s" % bot_data.hex())
+        return bot_data

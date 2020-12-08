@@ -20,7 +20,7 @@ class IdentificationSuccessMessage(NetworkMessage):
         self.havenbagAvailableRoom = {"type": "uint", "value": ""}
 
     def deserialize(self):
-        box = self.buffer_reader.read_uchar()
+        box = self.buffer_reader.read_ubyte()
         self.hasRights["value"] = BooleanByteWrapper.get_flag(box, 0)
         self.hasConsoleRight["value"] = BooleanByteWrapper.get_flag(box, 1)
         self.wasAlreadyConnected["value"] = BooleanByteWrapper.get_flag(box, 2)
@@ -32,4 +32,4 @@ class IdentificationSuccessMessage(NetworkMessage):
         self.accountCreation["value"] = self.buffer_reader.read_double()
         self.subscriptionElapsedDuration["value"] = self.buffer_reader.read_double()
         self.subscriptionEndDate["value"] = self.buffer_reader.read_double()
-        self.havenbagAvailableRoom["value"] = self.buffer_reader.read_uchar()
+        self.havenbagAvailableRoom["value"] = self.buffer_reader.read_ubyte()

@@ -18,7 +18,7 @@ class IdentificationMessage(NetworkMessage):
         self.failedAttempts = {"type": "Vector.<uint>", "value": []}
 
     def deserialize(self):
-        box = self.buffer_reader.read_uchar()
+        box = self.buffer_reader.read_ubyte()
         self.autoconnect["value"] = BooleanByteWrapper.get_flag(box, 0)
         self.useCertificate["value"] = BooleanByteWrapper.get_flag(box, 1)
         self.useLoginToken["value"] = BooleanByteWrapper.get_flag(box, 2)
