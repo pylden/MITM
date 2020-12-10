@@ -52,3 +52,4 @@ docs/_build/
 ressources/AS
 
 .idea
+venv
