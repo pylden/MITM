@@ -16,14 +16,11 @@ class D2Protocol(ProtocolProcessor):
         return messages, buffer
 
     def from_client(self, data):
-        print("From client:")
         messages, self._client_buffer = self.get_messages(self._client_buffer + data, from_client=True)
         bot_data = self.bot.read_messages(messages)
         return bot_data
 
     def from_server(self, data):
-        print("From server:")
-        print(self.bot.is_receiving_raw_data)
         if self.bot.is_receiving_raw_data:
             return data
         messages, self._server_buffer = self.get_messages(self._server_buffer + data)

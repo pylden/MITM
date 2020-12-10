@@ -27,7 +27,7 @@ class IdentificationMessage(NetworkMessage):
         self.lang = self.buffer_reader.read_utf()
         credentials_length = self.buffer_reader.read_var_int()
         for i in range(credentials_length):
-            self.credentials["value"].append(int.from_bytes(self.buffer_reader.read_byte(), "big"))
+            self.credentials["value"].append(self.buffer_reader.read_char())
         self.serverId = self.buffer_reader.read_short()
         self.sessionOptionalSalt = self.buffer_reader.read_var_long()
         failed_attempts_length = self.buffer_reader.read_ushort()

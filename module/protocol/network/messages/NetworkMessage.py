@@ -1,5 +1,6 @@
 from module.io.bytes_reader import BytesReader
 
+
 class NetworkMessage:
     def __init__(self, buffer_reader, len_type, length, count=None):
         self.buffer_reader = buffer_reader
@@ -10,7 +11,7 @@ class NetworkMessage:
     def get_hi_header(self):
         br = BytesReader()
         s = self.length
-        ssz = 0 if s == 0 else 1 if s  < 256 else 2 if s < 65535 else 3 if s < 16777215 else 4294967295
+        ssz = 0 if s == 0 else 1 if s < 256 else 2 if s < 65535 else 3
         br.write_ushort(self.id << 2 | ssz)
         if self.count:
             br.write_int(self.count)
@@ -18,7 +19,7 @@ class NetworkMessage:
             br.write_ubyte(s)
         elif ssz == 2:
             br.write_ushort(s)
-        else:
+        elif ssz == 3:
             br.write_uint(s)
         return br.getbuffer().hex()
 
@@ -48,3 +49,9 @@ class NetworkMessage:
 
     def get_name(self):
         return type(self).__name__
+
+    def __setattr__(self, key, value):
+        self.__dict__[key] = value
+        if key == 'buffer_reader':
+            self.length = value.getbuffer().nbytes
+            self.len_type = 0 if self.length == 0 else 1 if self.length < 256 else 2 if self.length < 65535 else 3

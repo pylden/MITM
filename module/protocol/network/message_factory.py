@@ -22,7 +22,6 @@ class MessageFactory:
         id, len_type = MessageFactory._get_header(buffer_reader)
         count = None if not from_client else buffer_reader.read_uint()
 
-        print(buffer_reader.getbuffer().hex())
         if buffer_reader.get_current_buffer().nbytes < len_type:
             print("Packet too small 1")
             return None

@@ -24,7 +24,6 @@ class Bot:
     def read_messages(self, messages):
         data = ''
         for message in messages:
-            print(message.get_name())
             self.messages.append(message)
             if 'read_%s' % message.get_name() in dir(self):
                 data += getattr(self, 'read_%s' % message.get_name())(message)
@@ -50,6 +49,5 @@ class Bot:
         return message.get_data().hex()
 
     def read_AuthenticationTicketMessage(self, message):
-        print("ATM")
         self.is_receiving_raw_data = True
         return message.get_data().hex()
