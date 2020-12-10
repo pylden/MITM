@@ -7,3 +7,7 @@ class AuthenticationTicketMessage(NetworkMessage):
         self.id = 8374
         self.lang = {"type": "String", "value": ""}
         self.ticket = {"type": "String", "value": ""}
+
+    def deserialize(self):
+        self.lang["value"] = self.buffer_reader.read_utf()
+        self.ticket["value"] = self.buffer_reader.read_utf()

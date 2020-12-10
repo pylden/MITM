@@ -24,10 +24,8 @@ class SelectedServerDataMessage(NetworkMessage):
             self.ticket["value"].append(self.buffer_reader.read_byte())
 
     def serialize(self):
-        print(self)
         self.buffer_reader = BytesReader()
         self.buffer_reader.write_var_short(self.serverId["value"])
-        print(self.address["value"])
         self.buffer_reader.write_utf(self.address["value"])
         self.buffer_reader.write_ushort(len(self.ports["value"]))
         for port in self.ports["value"]:
@@ -36,3 +34,4 @@ class SelectedServerDataMessage(NetworkMessage):
         self.buffer_reader.write_var_int(len(self.ticket["value"]))
         for t in self.ticket["value"]:
             self.buffer_reader.write_byte(t)
+        self.length = self.buffer_reader.getbuffer().nbytes

@@ -3,8 +3,6 @@ import asyncio
 
 
 class Server(asyncio.Protocol):  # MITM Server
-    clients = []
-
     def __init__(self, protocol_processor_class, distant_server_ip, distant_server_port):
         asyncio.Protocol.__init__(self)
         self._client = None
@@ -15,10 +13,10 @@ class Server(asyncio.Protocol):  # MITM Server
     def connection_made(self, transport):
         self.transport = transport
         self.peername = transport.get_extra_info("peername")
+
         self._client = Client(self, self._protocol_processor_class, self._distant_server_ip, self._distant_server_port)
-        self.__class__.clients.append({'id': self.peername, 'instance': self._client})
+        self._client.start_connection()
         print("Server connection_made: {}".format(self.peername))
-        print(self.__class__.clients)
 
     def data_received(self, data):  # Data received from client
         self._client.from_client(data)

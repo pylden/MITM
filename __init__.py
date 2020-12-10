@@ -5,7 +5,7 @@ from module.pluger.FrameClientPluger import FrameClientPluger
 from module.ui.app import App
 import queue
 
-EXE_PATH = "C:/Users/Pierre/AppData/Local/Ankama/zaap/dofus/Dofus.exe"
+EXE_PATH = "C:/Users/Xtroy/AppData/Local/Ankama/zaap/dofus/Dofus.exe"
 EXE_NAME = "Dofus.exe"
 LOCAL_SERVER_IP = "127.0.0.1"
 LOCAL_SERVER_PORT = 5555

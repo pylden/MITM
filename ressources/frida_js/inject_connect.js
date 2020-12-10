@@ -12,12 +12,12 @@ function getIp(array) {
 Interceptor.attach(Module.getExportByName('ws2_32', 'connect'), {
     onEnter: function(args) {
         var addr = new Uint8Array(args[1].add(4).readByteArray(4));
+        var hport = new Uint16Array(args[1].add(2).readByteArray(2));
         var ip = getIp(addr);
         var list_ips = [
             "34.252.21.81",
             "52.17.231.202",
-            "63.34.214.78",
-            "172.65.221.57",
+            "63.34.214.78"
         ];
         if (list_ips.indexOf(ip) != -1) {
             args[1].writeByteArray([
@@ -27,6 +27,6 @@ Interceptor.attach(Module.getExportByName('ws2_32', 'connect'), {
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
             ]);
         }
-        send(ip)
+        send([ip, hport[0], addr])
     }
 });

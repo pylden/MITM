@@ -11,4 +11,3 @@ class ProtocolProcessor:
     def from_server(self, data):
         """Action when server send data"""
         pass
-

@@ -42,3 +42,9 @@ class NetworkMessage:
 
     def serialize(self):
         print("Not implemented yet for {0} => {1}".format(self.id, type(self).__name__))
+
+    def __eq__(self, val):
+        return val == self.get_name()
+
+    def get_name(self):
+        return type(self).__name__

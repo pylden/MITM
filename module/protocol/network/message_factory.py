@@ -9,8 +9,11 @@ class MessageFactory:
         return int.from_bytes(hi_header, 'big') >> 2, int.from_bytes(hi_header, 'big') & 3
 
     @staticmethod
-    def message(buffer, from_client=False):
+    def message(buffer, from_client=False, is_raw_data=False):
         buffer_reader = BytesReader(buffer)
+
+        if is_raw_data:
+            pass
 
         if buffer_reader.get_current_buffer().nbytes < 2:  # If the current buffer is not even the size of header
             print("Header too small: %s" % buffer_reader.getbuffer().hex())
@@ -19,6 +22,7 @@ class MessageFactory:
         id, len_type = MessageFactory._get_header(buffer_reader)
         count = None if not from_client else buffer_reader.read_uint()
 
+        print(buffer_reader.getbuffer().hex())
         if buffer_reader.get_current_buffer().nbytes < len_type:
             print("Packet too small 1")
             return None
@@ -36,9 +40,6 @@ class MessageFactory:
         except KeyError:
             print("ID not found: %d" % id)
             exit()
-        #try:
         msg.deserialize()
-        #except Exception:
-        #    print("Can't deserialize")
         return msg
 
