@@ -2,7 +2,7 @@ from module.protocol.network.messages.NetworkMessage import NetworkMessage
 from module.io.bytes_reader import BytesReader
 
 
-class SelectedServerDataMessage(NetworkMessage):
+class  SelectedServerDataMessage(NetworkMessage):
     def __init__(self, buffer_reader, len_type, length, count=None):
         NetworkMessage.__init__(self, buffer_reader, len_type, length, count)
         self.id = 6182
@@ -13,25 +13,25 @@ class SelectedServerDataMessage(NetworkMessage):
         self.ticket = {"type": "Vector.<int>", "value": []}
 
     def deserialize(self):
-        self.serverId["value"] = self.buffer_reader.read_var_short()
-        self.address["value"] = self.buffer_reader.read_utf()
+        self.serverId = self.buffer_reader.read_var_short()
+        self.address = self.buffer_reader.read_utf()
         ports_length = self.buffer_reader.read_ushort()
         for i in range(0, ports_length):
-            self.ports["value"].append(self.buffer_reader.read_var_short())
-        self.canCreateNewCharacter["value"] = self.buffer_reader.read_boolean()
+            self.ports.append(self.buffer_reader.read_var_short())
+        self.canCreateNewCharacter = self.buffer_reader.read_boolean()
         ticket_length = self.buffer_reader.read_var_int()
         for i in range(0, ticket_length):
-            self.ticket["value"].append(self.buffer_reader.read_byte())
+            self.ticket.append(self.buffer_reader.read_byte())
 
     def serialize(self):
         br = BytesReader()
-        br.write_var_short(len(self.address["value"]))
-        br.write_utf(self.address["value"])
-        br.write_ushort(len(self.ports["value"]))
-        for port in self.ports["value"]:
+        br.write_var_short(len(self.address))
+        br.write_utf(self.address)
+        br.write_ushort(len(self.ports))
+        for port in self.ports:
             br.write_var_short(port)
-        br.write_bool(self.canCreateNewCharacter["value"])
-        br.write_var_int(len(self.ticket["value"]))
-        for t in self.ticket["value"]:
+        br.write_bool(self.canCreateNewCharacter)
+        br.write_var_int(len(self.ticket))
+        for t in self.ticket:
             br.write_byte(t)
         self.buffer_reader = br

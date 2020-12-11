@@ -1,5 +1,6 @@
 from module.protocol.network.utils.boolean_byte_wrapper import BooleanByteWrapper
 
+
 class GameServerInformations:
     protocolId = 5868
 

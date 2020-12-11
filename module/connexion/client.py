@@ -60,5 +60,6 @@ class Client(asyncio.Protocol):
         self._server.transport.close()
 
     def disconnect_all(self):
+        print("Disconnect all")
         self.disconnect_from_distant()
         self.disconnect_from_local()

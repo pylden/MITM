@@ -8,4 +8,4 @@ class ProtocolRequired(NetworkMessage):
         self.version = {"type": "String", "value": ""}
 
     def deserialize(self):
-        self.version["value"] = self.buffer_reader.read_utf()
+        self.version = self.buffer_reader.read_utf()

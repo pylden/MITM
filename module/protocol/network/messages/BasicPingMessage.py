@@ -8,4 +8,4 @@ class BasicPingMessage(NetworkMessage):
         self.quiet = {"type": "Boolean", "value": ""}
 
     def deserialize(self):
-        self.quiet["value"] = self.buffer_reader.read_boolean()
+        self.quiet = self.buffer_reader.read_boolean()

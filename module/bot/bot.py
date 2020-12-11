@@ -24,6 +24,7 @@ class Bot:
     def read_messages(self, messages):
         data = ''
         for message in messages:
+            print(message)
             self.messages.append(message)
             if 'read_%s' % message.get_name() in dir(self):
                 data += getattr(self, 'read_%s' % message.get_name())(message)
@@ -34,15 +35,19 @@ class Bot:
         return bytes.fromhex(data)
 
     def read_SelectedServerDataMessage(self, message):
-        self.server = message.address["value"]
-        self.port = message.ports["value"][0]
-        message.address["value"] = "127.0.0.1"
+        self.server = message.address
+        self.port = message.ports[0]
+        message.address = "127.0.0.1"
         message.serialize()
+        print(message)
         self._client.write_local(bytes.fromhex(message.get_data().hex()))
         self.is_authenticated = True
         self._client.disconnect_all()
         self._client.reconnecting = True
         return ''
+
+    def read_SelectedServerDataExtendedMessage(self, message):
+        return self.read_SelectedServerDataMessage(message)
 
     def read_HelloGameMessage(self, message):
         self.is_connected = True

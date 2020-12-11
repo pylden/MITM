@@ -8,4 +8,4 @@ class ServerSelectionMessage(NetworkMessage):
         self.serverId = {"type": "uint", "value": ""}
 
     def deserialize(self):
-        self.serverId["value"] = self.buffer_reader.read_read_var_uh_short()
+        self.serverId = self.buffer_reader.read_read_var_uh_short()

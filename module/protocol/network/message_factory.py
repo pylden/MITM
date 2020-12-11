@@ -32,13 +32,13 @@ class MessageFactory:
             print("Packet too small 2")
             return None
 
-        msg = buffer_reader.read(length)
+        msg_buffer = buffer_reader.read(length)
 
-        try:
-            msg = MessagesDict[id](BytesReader(msg), len_type, length, count=count)
-        except KeyError:
-            print("ID not found: %d" % id)
-            exit()
+        #try:
+        msg = MessagesDict[id](BytesReader(msg_buffer), len_type, length, count=count)
+        #except KeyError:
+        #    print("ID not found: %d" % id)
+        #    exit()
         msg.deserialize()
         return msg
 

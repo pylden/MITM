@@ -15,6 +15,6 @@ class ServersListMessage(NetworkMessage):
         for i in range(server_length):
             item = GameServerInformations()
             item.deserialize(self.buffer_reader)
-            self.servers["value"].append(item)
+            self.servers.append(item)
         self.alreadyConnectedToServerId = self.buffer_reader.read_read_var_uh_short()
         self.canCreateNewCharacter = self.buffer_reader.read_boolean()

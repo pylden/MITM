@@ -11,12 +11,12 @@ class CheckIntegrityMessage(NetworkMessage):
     def deserialize(self):
         length = self.buffer_reader.read_var_int()
         for i in range(length):
-            self.data["value"].append(self.buffer_reader.read_byte())
+            self.data.append(self.buffer_reader.read_byte())
 
     def serialize(self):
         br = BytesReader()
-        if len(self.data["value"]):
-            br.write_var_int(len(self.data["value"]))
-            for data in self.data["value"]:
+        if len(self.data):
+            br.write_var_int(len(self.data))
+            for data in self.data:
                 br.write_byte(data)
         self.buffer_reader = br
